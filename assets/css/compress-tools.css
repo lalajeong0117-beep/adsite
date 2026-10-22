@@ -1,0 +1,346 @@
+/* Format-specific local compression workspace */
+.compress-tools-main {
+  min-height: 70vh;
+  padding-bottom: 5rem;
+  background: var(--color-paper);
+}
+
+.compress-tools-hero {
+  border-bottom: 1px solid var(--color-line);
+  background-color: #edf4ee;
+  background-image: radial-gradient(rgba(23, 77, 67, 0.1) 0.7px, transparent 0.7px);
+  background-size: 18px 18px;
+}
+
+.compress-tools-hero-inner {
+  display: flex;
+  min-height: 17rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 2.75rem;
+}
+
+.compress-tools-hero h1 {
+  margin-top: 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.65rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.compress-tools-hero h1 span {
+  color: var(--color-primary);
+}
+
+.compress-tools-hero p:not(.eyebrow) {
+  max-width: 40rem;
+  margin-top: 0.9rem;
+  color: var(--color-muted);
+}
+
+.compress-tools-mark {
+  display: grid;
+  width: 7rem;
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  align-content: center;
+  border: 1px solid #b7cbbd;
+  border-radius: 0.6rem;
+  background: #ffffff;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.5;
+  text-align: center;
+  transform: rotate(4deg);
+}
+
+.compress-tools-workspace {
+  max-width: 53rem;
+  margin-top: 2.5rem;
+  padding: clamp(1.1rem, 3vw, 2.2rem);
+  border: 1px solid var(--color-line);
+  border-radius: 0.75rem;
+  background: var(--color-white);
+  box-shadow: 0 16px 44px rgba(23, 53, 45, 0.07);
+}
+
+.compress-tools-heading,
+.compress-tools-result > .compress-tools-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.compress-tools-heading h2 {
+  margin-top: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.panel-kicker {
+  color: #788982;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.compress-tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #557263;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.compress-tool-badge .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.compress-tool-description {
+  margin-top: 0.55rem;
+  color: var(--color-muted);
+  font-size: 0.86rem;
+}
+
+.compress-upload-zone {
+  display: flex;
+  min-height: 14rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: 1.4rem;
+  padding: 1.5rem;
+  border: 1.5px dashed #9ebaae;
+  border-radius: 0.7rem;
+  background-color: #f7faf7;
+  background-image: radial-gradient(rgba(23, 77, 67, 0.08) 0.65px, transparent 0.65px);
+  background-size: 15px 15px;
+  text-align: center;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.compress-upload-zone.is-dragover {
+  border-color: var(--color-primary);
+  background-color: #edf6df;
+}
+
+.compress-upload-icon,
+.compress-file-icon {
+  display: grid;
+  width: 2.8rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 0.65rem;
+  background: #e6f0e9;
+  color: var(--color-primary);
+}
+
+.compress-upload-zone > span:not(.compress-upload-icon) {
+  color: var(--color-muted);
+  font-size: 0.82rem;
+}
+
+.compress-upload-zone .btn {
+  margin-top: 0.4rem;
+}
+
+.compress-selected-file {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.55rem;
+}
+
+.compress-file-icon {
+  width: 2.5rem;
+  flex: 0 0 auto;
+}
+
+.compress-selected-file > div {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 0.15rem;
+}
+
+.compress-selected-file strong,
+.compress-selected-file span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compress-selected-file strong {
+  font-size: 0.85rem;
+}
+
+.compress-selected-file > div > span {
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+
+.compress-remove-file {
+  padding: 0.5rem;
+  color: #8e463d;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.compress-quality {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.55rem;
+  background: #fbfcfb;
+}
+
+.compress-quality-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.compress-quality-heading output {
+  color: var(--color-primary);
+}
+
+.compress-quality > input {
+  width: 100%;
+  margin-top: 0.7rem;
+  accent-color: var(--color-primary);
+}
+
+.compress-range-labels {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-muted);
+  font-size: 0.72rem;
+}
+
+.compress-tools-button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.compress-tools-button[aria-busy="true"] {
+  cursor: progress;
+}
+
+.compress-progress {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.4fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+}
+
+.compress-progress progress {
+  width: 100%;
+  height: 0.55rem;
+  accent-color: var(--color-primary);
+}
+
+.compress-status {
+  min-height: 1.4rem;
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.compress-status.is-error {
+  color: #9b3d32;
+}
+
+.compress-tools-result {
+  margin-top: 1.5rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.compress-size-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.compress-size-grid p {
+  display: grid;
+  min-width: 0;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border-radius: 0.45rem;
+  background: #f4f7f4;
+}
+
+.compress-size-grid span {
+  color: var(--color-muted);
+  font-size: 0.72rem;
+}
+
+.compress-size-grid strong {
+  overflow-wrap: anywhere;
+  font-size: 0.95rem;
+}
+
+.compress-result-note {
+  margin-block: 0.9rem;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+}
+
+.compress-tools-result > .btn {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .compress-tools-hero-inner {
+    min-height: 15rem;
+  }
+
+  .compress-tools-mark {
+    width: 5rem;
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .compress-tools-hero-inner {
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding-block: 2rem;
+  }
+
+  .compress-tools-mark {
+    width: 3.5rem;
+    font-size: 0.55rem;
+  }
+
+  .compress-tools-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .compress-size-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .compress-progress {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

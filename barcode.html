@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f8f6">
+    <meta name="description" content="무료 온라인 바코드 생성기로 CODE128, EAN13, UPC-A, CODE39, ITF14 바코드를 간편하게 만들고 PNG, SVG 파일로 다운로드하세요.">
+    <title>무료 바코드 생성기 | CODE128, EAN13, UPC 바코드 만들기 - Filewise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/commons.css">
+    <link rel="stylesheet" href="assets/css/barcode.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+    <script>window.JsBarcode || document.write('<script src="assets/vendor/JsBarcode.all.min.js"><\/script>')</script>
+    <script src="assets/js/common.js" defer></script>
+    <script src="assets/js/barcode.js" defer></script>
+  </head>
+  <body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden>
+      <symbol id="icon-mark" viewBox="0 0 24 24"><path d="M7 7h10v10H7z"/><path d="M4 10V4h6M20 14v6h-6M8 12h8M12 8v8"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/></symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 17v4h14v-4"/></symbol>
+      <symbol id="icon-printer" viewBox="0 0 24 24"><path d="M7 8V3h10v5M7 17H4V9h16v8h-3"/><path d="M7 14h10v7H7zM17 11h.01"/></symbol>
+    </svg>
+
+    <div id="site-header"></div>
+
+    <main class="barcode-main" id="top">
+      <section class="barcode-hero" aria-labelledby="barcode-title">
+        <div class="inner barcode-hero-inner">
+          <div>
+            <span class="eyebrow">Filewise Barcode Studio</span>
+            <h1 id="barcode-title">무료 온라인 바코드 생성기</h1>
+            <p>숫자와 텍스트를 입력해 원하는 바코드를 간편하게 만들어보세요. 다양한 바코드 형식을 지원하며 PNG와 SVG 파일로 다운로드할 수 있습니다.</p>
+            <p class="barcode-local-note"><span aria-hidden="true"></span>회원가입 없이, 입력 데이터는 이 기기에서 처리됩니다.</p>
+          </div>
+          <div class="barcode-hero-mark" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+      </section>
+
+      <section class="inner barcode-workspace" id="generator" aria-labelledby="generator-title">
+        <div class="barcode-section-heading">
+          <div><span class="eyebrow">On-device generator</span><h2 id="generator-title">바코드 설정</h2></div>
+          <span class="barcode-device-note"><i aria-hidden="true"></i>브라우저에서 즉시 생성</span>
+        </div>
+        <div class="barcode-layout">
+          <section class="barcode-editor" aria-label="바코드 입력과 디자인 설정">
+            <div class="barcode-field">
+              <label for="barcode-format">바코드 형식</label>
+              <select id="barcode-format">
+                <option value="CODE128">CODE 128</option>
+                <option value="EAN13">EAN-13</option>
+                <option value="UPC">UPC-A</option>
+                <option value="CODE39">CODE 39</option>
+                <option value="ITF14">ITF-14</option>
+              </select>
+            </div>
+            <div class="barcode-field">
+              <label for="barcode-data">바코드 데이터</label>
+              <input id="barcode-data" type="text" value="FILEWISE-128" autocomplete="off" spellcheck="false" aria-describedby="barcode-hint barcode-status">
+              <span class="barcode-field-hint" id="barcode-hint">CODE 128은 공백을 포함한 영문, 숫자, 기본 기호를 지원합니다.</span>
+              <p class="barcode-status" id="barcode-status" role="status" aria-live="polite"></p>
+            </div>
+
+            <fieldset class="barcode-settings">
+              <legend>디자인 설정</legend>
+              <div class="barcode-settings-grid">
+                <div class="barcode-setting">
+                  <label for="barcode-width">선 너비 <output id="barcode-width-output" for="barcode-width">2</output></label>
+                  <input id="barcode-width" type="range" min="1" max="4" step="0.5" value="2">
+                </div>
+                <div class="barcode-setting">
+                  <label for="barcode-height">바코드 높이 <output id="barcode-height-output" for="barcode-height">100 px</output></label>
+                  <input id="barcode-height" type="range" min="60" max="180" step="10" value="100">
+                </div>
+                <div class="barcode-setting barcode-color-setting">
+                  <label for="barcode-line-color">선 색상</label>
+                  <input id="barcode-line-color" type="color" value="#172b29">
+                </div>
+                <div class="barcode-setting barcode-color-setting">
+                  <label for="barcode-background-color">배경 색상</label>
+                  <input id="barcode-background-color" type="color" value="#ffffff">
+                </div>
+                <div class="barcode-setting">
+                  <label for="barcode-font-size">텍스트 크기 <output id="barcode-font-size-output" for="barcode-font-size">16 px</output></label>
+                  <input id="barcode-font-size" type="range" min="12" max="30" step="1" value="16">
+                </div>
+                <div class="barcode-setting">
+                  <label for="barcode-margin">좌우 여백 <output id="barcode-margin-output" for="barcode-margin">12 px</output></label>
+                  <input id="barcode-margin" type="range" min="8" max="40" step="2" value="12">
+                </div>
+              </div>
+              <label class="barcode-check" for="barcode-display-value"><input id="barcode-display-value" type="checkbox" checked><span>바코드 아래 데이터 표시</span></label>
+              <p class="barcode-contrast" id="barcode-contrast" role="status">검은 선과 밝은 배경, 충분한 좌우 여백이 스캔에 적합합니다.</p>
+            </fieldset>
+          </section>
+
+          <section class="barcode-preview-panel" aria-label="바코드 미리보기와 다운로드">
+            <div class="barcode-preview-heading"><div><span class="panel-kicker">PREVIEW</span><h2>생성 결과</h2></div><span class="barcode-ready"><i aria-hidden="true"></i>실시간 미리보기</span></div>
+            <div class="barcode-preview-stage" id="barcode-preview-stage">
+              <div class="barcode-empty" id="barcode-empty"><strong>미리보기를 준비하는 중</strong><span>데이터와 형식에 맞는 바코드가 표시됩니다.</span></div>
+              <section class="barcode-print-area" id="barcode-print-area" aria-label="인쇄할 바코드" hidden>
+                <svg class="barcode-result" id="barcode-preview" role="img" aria-label="생성된 바코드 미리보기" hidden></svg>
+                <p class="barcode-print-value" id="barcode-print-value"></p>
+              </section>
+            </div>
+            <p class="barcode-preview-meta" id="barcode-preview-meta">CODE 128 · 브라우저 내 생성</p>
+            <div class="barcode-downloads">
+              <button class="btn btn-secondary" id="barcode-download-png" type="button" disabled><svg class="icon"><use href="#icon-download"></use></svg>PNG 다운로드</button>
+              <button class="btn btn-secondary" id="barcode-download-svg" type="button" disabled><svg class="icon"><use href="#icon-download"></use></svg>SVG 다운로드</button>
+              <button class="btn btn-secondary" id="barcode-print" type="button" disabled><svg class="icon"><use href="#icon-printer"></use></svg>인쇄</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <aside class="inner barcode-ad-slot" aria-label="광고 영역" data-ad-slot="barcode-generator"><span>광고</span></aside>
+
+      <section class="section barcode-types" id="barcode-types" aria-labelledby="barcode-types-title">
+        <div class="inner">
+          <div class="section-heading"><span class="eyebrow">Supported formats</span><h2 id="barcode-types-title">필요한 표준을 선택하세요</h2><p>데이터의 용도와 입력 형식에 맞는 바코드 종류를 고를 수 있습니다.</p></div>
+          <ul class="barcode-type-list">
+            <li class="barcode-type-card"><svg class="barcode-example" data-barcode-example="CODE128" aria-label="CODE 128 예시"></svg><h3>CODE 128</h3><p>물류 및 재고 관리</p></li>
+            <li class="barcode-type-card"><svg class="barcode-example" data-barcode-example="EAN13" aria-label="EAN-13 예시"></svg><h3>EAN-13</h3><p>소매 상품 식별</p></li>
+            <li class="barcode-type-card"><svg class="barcode-example" data-barcode-example="UPC" aria-label="UPC-A 예시"></svg><h3>UPC-A</h3><p>북미 소매 상품</p></li>
+            <li class="barcode-type-card"><svg class="barcode-example" data-barcode-example="CODE39" aria-label="CODE 39 예시"></svg><h3>CODE 39</h3><p>산업용 식별</p></li>
+            <li class="barcode-type-card"><svg class="barcode-example" data-barcode-example="ITF14" aria-label="ITF-14 예시"></svg><h3>ITF-14</h3><p>포장 및 물류 관리</p></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section barcode-how" aria-labelledby="barcode-how-title">
+        <div class="inner">
+          <div class="section-heading"><span class="eyebrow">간단한 세 단계</span><h2 id="barcode-how-title">입력하고, 확인하고, 저장하세요.</h2></div>
+          <ol class="step-list">
+            <li class="step-card"><div class="step-topline"><span class="step-number">01</span></div><h3>바코드 형식 선택</h3><p>사용할 바코드 종류를 선택합니다.</p></li>
+            <li class="step-card"><div class="step-topline"><span class="step-number">02</span></div><h3>숫자 또는 텍스트 입력</h3><p>바코드 데이터를 입력하고 원하는 스타일을 설정합니다.</p></li>
+            <li class="step-card"><div class="step-topline"><span class="step-number">03</span></div><h3>바코드 다운로드</h3><p>생성된 바코드를 PNG 또는 SVG 파일로 다운로드합니다.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <aside class="inner barcode-ad-slot barcode-ad-slot--faq" aria-label="광고 영역" data-ad-slot="barcode-before-faq"><span>광고</span></aside>
+
+      <section class="section barcode-faq" aria-labelledby="barcode-faq-title">
+        <div class="inner barcode-faq-inner">
+          <div class="section-heading"><span class="eyebrow">자주 묻는 질문</span><h2 id="barcode-faq-title">바코드 생성 FAQ</h2></div>
+          <div class="barcode-faq-list">
+            <details><summary>바코드 생성기는 무료인가요?</summary><p>네. 회원가입 없이 브라우저에서 무료로 이용할 수 있습니다. 입력한 데이터는 바코드 생성에만 사용되며 이 페이지에서 외부 API로 전송하지 않습니다.</p></details>
+            <details><summary>바코드 이미지를 다운로드할 수 있나요?</summary><p>생성된 바코드를 PNG 또는 SVG로 저장할 수 있습니다. PNG는 픽셀 이미지이고 SVG는 크기를 바꿔도 선명한 벡터 이미지입니다.</p></details>
+            <details><summary>CODE 128과 EAN-13의 차이는 무엇인가요?</summary><p>CODE 128은 다양한 영문, 숫자, 기호를 담는 범용 형식입니다. EAN-13은 체크디지트를 포함한 13자리 숫자 형식으로 소매 상품 식별에 널리 쓰입니다.</p></details>
+            <details><summary>생성한 바코드를 상품에 사용할 수 있나요?</summary><p>바코드 이미지를 만드는 것과 상품번호를 공식 할당·등록하는 것은 별개입니다. 상품 유통에 필요한 번호는 GS1 등 정식 발급 기관을 통해 확인하고, 스캔·인쇄 환경에서도 별도로 시험하세요.</p></details>
+            <details><summary>바코드가 인식되지 않는 이유는 무엇인가요?</summary><p>낮은 색상 대비, 좁은 여백, 흐린 인쇄, 손상된 이미지 또는 잘못된 데이터가 원인일 수 있습니다. 검은 선과 밝은 배경을 사용하고 충분한 여백을 둔 뒤 실제 스캐너로 확인하세요.</p></details>
+            <details><summary>바코드를 인쇄할 수 있나요?</summary><p>네. 인쇄 버튼은 바코드와 해당 데이터만 인쇄하도록 브라우저 인쇄 창을 엽니다. 실제 크기와 스캐너 판독은 프린터와 용지에 따라 달라질 수 있으므로 출력물을 확인하세요.</p></details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+  </body>
+</html>

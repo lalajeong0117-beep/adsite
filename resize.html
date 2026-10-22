@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f8f6">
+    <meta name="description" content="무료 온라인 이미지 크기 조절기. JPG, PNG, WEBP 사진의 가로·세로 픽셀 크기를 변경하고 원하는 이미지 형식과 품질로 다운로드하세요.">
+    <title>이미지 크기 조절기 - 사진 픽셀 변경 및 JPG PNG WEBP 저장 | Filewise</title>
+    <meta property="og:title" content="이미지 크기 조절기 - Filewise">
+    <meta property="og:description" content="무료 온라인 이미지 크기 조절기. JPG, PNG, WEBP 사진의 가로·세로 픽셀 크기를 변경하고 원하는 이미지 형식과 품질로 다운로드하세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/resize.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/commons.css">
+    <link rel="stylesheet" href="assets/css/resize.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script src="assets/js/common.js" defer></script>
+    <script src="assets/js/resize.js" defer></script>
+  </head>
+  <body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden>
+      <symbol id="icon-mark" viewBox="0 0 24 24"><path d="M7 7h10v10H7z"/><path d="M4 10V4h6M20 14v6h-6M8 12h8M12 8v8"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="icon-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 17v4h14v-4"/></symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+      <symbol id="icon-unlock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></symbol>
+      <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+      <symbol id="icon-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    </svg>
+
+    <div id="site-header"></div>
+
+    <main class="resize-main" id="top">
+      <!-- 1. 메인 소개 영역 (Hero) -->
+      <section class="resize-hero" aria-labelledby="resize-title">
+        <div class="inner resize-hero-inner">
+          <div class="resize-hero-text">
+            <span class="eyebrow">Filewise Image Studio</span>
+            <h1 id="resize-title">이미지 크기를 원하는 대로 간편하게 조절하세요.</h1>
+            <p class="resize-sub">사진을 업로드하고 가로·세로 크기를 변경한 뒤 바로 다운로드하세요.</p>
+            <div class="resize-notice-badges" aria-label="주요 특징">
+              <span class="notice-badge"><i class="notice-badge-dot" aria-hidden="true"></i>무료 이용</span>
+              <span class="notice-badge-divider" aria-hidden="true">|</span>
+              <span class="notice-badge"><i class="notice-badge-dot" aria-hidden="true"></i>비율 유지</span>
+              <span class="notice-badge-divider" aria-hidden="true">|</span>
+              <span class="notice-badge"><i class="notice-badge-dot" aria-hidden="true"></i>JPG·PNG·WEBP 지원</span>
+            </div>
+          </div>
+          <div class="resize-hero-badge" aria-hidden="true">
+            <div class="resize-hero-card">
+              <div class="hero-card-header">
+                <span class="hero-card-dot red"></span>
+                <span class="hero-card-dot yellow"></span>
+                <span class="hero-card-dot green"></span>
+                <span class="hero-card-tag">Image Resizer</span>
+              </div>
+              <div class="hero-card-preview">
+                <div class="hero-scale-box original-box">
+                  <span class="box-label">1920 × 1080</span>
+                </div>
+                <div class="hero-arrow">↓</div>
+                <div class="hero-scale-box resized-box">
+                  <span class="box-label">800 × 450 (High Quality)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 광고 영역 1 -->
+      <aside class="inner resize-ad-slot" aria-label="광고 영역" data-ad-slot="resize-top">
+        <span>광고</span>
+      </aside>
+
+      <!-- 작업 영역 (업로드 + 에디터 + 다운로드) -->
+      <section class="inner resize-workspace" id="workspace" aria-labelledby="workspace-title">
+        <div class="resize-section-heading">
+          <div>
+            <span class="eyebrow">On-device Image Resizer</span>
+            <h2 id="workspace-title">이미지 크기 조절</h2>
+          </div>
+          <span class="resize-device-note">
+            <i aria-hidden="true"></i>브라우저 자체 처리 (서버 업로드 없음)
+          </span>
+        </div>
+
+        <!-- 2. 이미지 업로드 영역 -->
+        <div class="resize-card resize-upload-card" id="upload-card">
+          <div class="resize-upload-zone" id="resize-upload-zone" role="button" tabindex="0" aria-label="이미지 파일 업로드 영역">
+            <span class="upload-zone-icon">
+              <svg class="icon"><use href="#icon-upload"></use></svg>
+            </span>
+            <p class="upload-zone-title">이미지를 이곳으로 드래그하거나 클릭하여 선택하세요</p>
+            <p class="upload-zone-meta">JPG, PNG, WEBP 지원 | 파일당 최대 15MB</p>
+            <input type="file" id="resize-file-input" accept="image/jpeg,image/png,image/webp" hidden>
+            <button type="button" class="btn btn-primary upload-btn" id="btn-select-file">
+              <span>이미지 선택</span>
+            </button>
+          </div>
+          <div class="upload-error-alert" id="upload-error-alert" role="alert" hidden>
+            <span id="upload-error-msg"></span>
+          </div>
+        </div>
+
+        <!-- 3. 원본 미리보기 및 크기 조절 에디터 카드 (이미지 업로드 시 노출) -->
+        <div class="resize-card resize-editor-card" id="editor-card" hidden>
+          <!-- 원본 파일 메타 헤더 -->
+          <div class="editor-header-bar">
+            <div class="file-meta-group">
+              <svg class="meta-icon"><use href="#icon-image"></use></svg>
+              <div class="file-meta-text">
+                <strong id="meta-filename">파일명.jpg</strong>
+                <span class="file-meta-sub">
+                  원본: <span id="meta-original-dim">0 × 0 px</span> | <span id="meta-original-size">0 KB</span>
+                </span>
+              </div>
+            </div>
+            <div class="editor-header-actions">
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-change-image">
+                <span>다른 이미지 선택</span>
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-reset-all">
+                <span>초기화</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 좌우 배치: 미리보기(좌) vs 컨트롤(우) -->
+          <div class="editor-layout-grid">
+            <!-- 좌측: 이미지 미리보기 영역 -->
+            <div class="editor-preview-column">
+              <div class="preview-tabs" role="tablist">
+                <button type="button" class="preview-tab is-active" id="tab-result-preview" role="tab" aria-selected="true">
+                  <span>변환 결과 미리보기</span>
+                </button>
+                <button type="button" class="preview-tab" id="tab-original-preview" role="tab" aria-selected="false">
+                  <span>원본 이미지</span>
+                </button>
+              </div>
+
+              <div class="preview-viewport-box" id="preview-viewport-box">
+                <img id="preview-image" src="" alt="이미지 미리보기">
+                <div class="preview-dim-badge" id="preview-dim-badge">0 × 0 px</div>
+              </div>
+
+              <!-- 변환 상태 안내 -->
+              <div class="preview-status-bar" id="preview-status-bar">
+                <span class="status-indicator-dot" aria-hidden="true"></span>
+                <span id="preview-status-text">크기와 형식을 설정한 후 [이미지 크기 변경] 버튼을 눌러주세요.</span>
+              </div>
+            </div>
+
+            <!-- 우측: 크기 조절 및 저장 설정 컬럼 -->
+            <div class="editor-controls-column">
+              <!-- A. 크기 조절 설정 (Width / Height / Aspect Ratio) -->
+              <div class="control-box">
+                <div class="control-box-header">
+                  <h3 class="control-box-title">크기 조절 (픽셀)</h3>
+                  <button type="button" class="btn-text-reset" id="btn-reset-dimensions" title="가로·세로 크기를 원본 값으로 되돌립니다">
+                    <svg class="icon-inline"><use href="#icon-refresh"></use></svg>
+                    <span>원본 크기로 초기화</span>
+                  </button>
+                </div>
+
+                <div class="dimensions-input-row">
+                  <div class="dim-input-group">
+                    <label for="input-width" class="dim-input-label">가로 (Width)</label>
+                    <div class="dim-input-wrap">
+                      <input type="number" id="input-width" min="1" max="8000" step="1" aria-label="가로 픽셀">
+                      <span class="dim-unit">px</span>
+                    </div>
+                  </div>
+
+                  <!-- 비율 고정 토글 버튼 -->
+                  <div class="aspect-lock-wrap">
+                    <button type="button" class="aspect-lock-btn is-locked" id="btn-lock-aspect" aria-label="비율 유지 고정 토글" title="가로·세로 비율 고정 (클릭하여 해제)">
+                      <svg class="lock-icon lock-icon-locked"><use href="#icon-lock"></use></svg>
+                      <svg class="lock-icon lock-icon-unlocked"><use href="#icon-unlock"></use></svg>
+                      <span class="sr-only">비율 유지</span>
+                    </button>
+                    <span class="aspect-lock-caption" id="aspect-lock-caption">비율 유지 ON</span>
+                  </div>
+
+                  <div class="dim-input-group">
+                    <label for="input-height" class="dim-input-label">세로 (Height)</label>
+                    <div class="dim-input-wrap">
+                      <input type="number" id="input-height" min="1" max="8000" step="1" aria-label="세로 픽셀">
+                      <span class="dim-unit">px</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="aspect-notice-text" id="aspect-notice-text">
+                  비율 유지가 켜져 있어 가로나 세로 한쪽만 변경해도 다른 한쪽이 자동 계산됩니다.
+                </p>
+              </div>
+
+              <!-- B. 빠른 크기 변경 프리셋 -->
+              <div class="control-box">
+                <h3 class="control-box-title">빠른 크기 변경 프리셋 (원본 기준)</h3>
+                <div class="presets-buttons-grid" role="group" aria-label="크기 비율 프리셋">
+                  <button type="button" class="preset-btn" data-scale="0.25">25%</button>
+                  <button type="button" class="preset-btn" data-scale="0.5">50%</button>
+                  <button type="button" class="preset-btn" data-scale="0.75">75%</button>
+                  <button type="button" class="preset-btn is-active" data-scale="1.0">원본 100%</button>
+                  <button type="button" class="preset-btn" data-scale="1.5">150%</button>
+                  <button type="button" class="preset-btn" data-scale="2.0">200%</button>
+                </div>
+              </div>
+
+              <!-- C. 이미지 저장 형식 및 품질 설정 -->
+              <div class="control-box">
+                <h3 class="control-box-title">출력 형식 &amp; 품질</h3>
+                <!-- 파일 형식 선택 -->
+                <div class="format-options-row" role="radiogroup" aria-label="출력 파일 형식">
+                  <label class="format-option-item is-selected" id="label-format-jpg">
+                    <input type="radio" name="output-format" value="jpg" checked>
+                    <strong>JPG</strong>
+                    <small>투명 배경 흰색 합성</small>
+                  </label>
+                  <label class="format-option-item" id="label-format-png">
+                    <input type="radio" name="output-format" value="png">
+                    <strong>PNG</strong>
+                    <small>투명도 유지·무손실</small>
+                  </label>
+                  <label class="format-option-item" id="label-format-webp">
+                    <input type="radio" name="output-format" value="webp">
+                    <strong>WEBP</strong>
+                    <small>고효율 차세대 포맷</small>
+                  </label>
+                </div>
+
+                <!-- 품질 조절 슬라이더 (JPG & WEBP 전용) -->
+                <div class="quality-control-wrap" id="quality-control-wrap">
+                  <div class="quality-label-row">
+                    <label for="input-quality" class="dim-input-label">압축 품질</label>
+                    <span class="quality-val-badge" id="quality-val-badge">90%</span>
+                  </div>
+                  <input type="range" id="input-quality" min="10" max="100" step="1" value="90" aria-label="이미지 압축 품질">
+                  <div class="quality-scale-labels">
+                    <span>10% (최대 압축)</span>
+                    <span>90% (권장)</span>
+                    <span>100% (최고 화질)</span>
+                  </div>
+                </div>
+                <p class="png-quality-notice" id="png-quality-notice" hidden>
+                  ※ PNG 형식은 무손실 압축이 적용되므로 별도의 품질 손실 슬라이더가 적용되지 않습니다.
+                </p>
+              </div>
+
+              <!-- D. 변환 실행 & 결과 카드 -->
+              <div class="control-box control-box--actions">
+                <div class="action-buttons-row">
+                  <button type="button" class="btn btn-primary btn-resize-action" id="btn-apply-resize">
+                    <svg class="icon"><use href="#icon-spark"></use></svg>
+                    <span>이미지 크기 변경</span>
+                  </button>
+                  <button type="button" class="btn btn-secondary btn-download-action" id="btn-download-image" disabled>
+                    <svg class="icon"><use href="#icon-download"></use></svg>
+                    <span id="download-btn-text">다운로드</span>
+                  </button>
+                </div>
+
+                <!-- 변환 결과 통계 -->
+                <div class="conversion-result-summary" id="conversion-result-summary" hidden>
+                  <div class="summary-item">
+                    <span class="summary-label">변경 후 크기:</span>
+                    <strong class="summary-val" id="result-meta-dim">0 × 0 px</strong>
+                  </div>
+                  <div class="summary-item">
+                    <span class="summary-label">결과 파일 용량:</span>
+                    <strong class="summary-val" id="result-meta-size">0 KB</strong>
+                  </div>
+                  <div class="summary-item">
+                    <span class="summary-label">저장 파일명:</span>
+                    <code class="summary-code" id="result-meta-filename">filewise-resized.jpg</code>
+                  </div>
+                </div>
+
+                <div class="action-alert" id="action-alert" role="status" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 광고 영역 2 -->
+      <aside class="inner resize-ad-slot" aria-label="광고 영역" data-ad-slot="resize-middle">
+        <span>광고</span>
+      </aside>
+
+      <!-- 8. 이용 방법 -->
+      <section class="inner resize-info-section" aria-labelledby="steps-heading">
+        <div class="section-heading">
+          <span class="eyebrow">How It Works</span>
+          <h2 id="steps-heading">간단한 이용 방법</h2>
+          <p>누구나 브라우저에서 30초 안에 원하는 픽셀 크기로 사진을 리사이즈할 수 있습니다.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <h3>이미지 업로드</h3>
+            <p>크기를 바꿀 JPG, PNG, WEBP 사진을 파일 선택 또는 드래그 앤 드롭으로 업로드합니다.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <h3>가로·세로 픽셀 입력</h3>
+            <p>원하는 가로 또는 세로 크기를 입력합니다. 비율 유지 기능으로 왜곡 없이 크기가 자동 계산됩니다.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <h3>출력 형식 및 품질 선택</h3>
+            <p>JPG, PNG, WEBP 형식 중 원하는 확장자를 고르고, 필요한 경우 압축 품질(10%~100%)을 조절합니다.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">04</div>
+            <h3>이미지 크기 변경</h3>
+            <p>‘이미지 크기 변경’ 버튼을 누르면 브라우저 캔버스에서 고화질 리샘플링 처리가 진행됩니다.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">05</div>
+            <h3>결과 확인 및 다운로드</h3>
+            <p>미리보기와 실제 변환된 파일 용량을 확인한 후 <code>filewise-resized.*</code> 파일로 즉시 저장합니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. FAQ -->
+      <section class="inner resize-faq-section" aria-labelledby="faq-heading">
+        <div class="section-heading">
+          <span class="eyebrow">FAQ</span>
+          <h2 id="faq-heading">자주 묻는 질문</h2>
+          <p>이미지 크기 조절 도구에 대해 자주 묻는 질문과 답변입니다.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-question">
+              <span>이미지 크기를 줄이면 화질이 떨어지나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>이미지를 축소할 때는 고품질 바이리니어/바이큐빅 리샘플링 알고리즘(<code>imageSmoothingQuality: high</code>)이 적용되어 선명도가 깨끗하게 유지됩니다. 반대로 원본보다 지나치게 확대하는 경우 픽셀이 늘어나 다소 부드러워지거나 흐려 보일 수 있습니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>이미지 비율을 유지하려면 어떻게 하나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>기본적으로 ‘비율 유지(자물쇠)’ 기능이 켜져 있습니다. 가로 폭이나 세로 높이 중 하나만 수정하면 원본 비율에 맞추어 다른 한쪽이 자동으로 계산되므로 사진이 찌그러지지 않습니다. 독립적으로 크기를 정하고 싶다면 자물쇠 버튼을 클릭하여 해제할 수 있습니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>JPG, PNG, WEBP 중 어떤 형식이 좋나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>일반 사진이나 풍경 이미지는 <strong>JPG</strong>가 가장 호환성이 높고 용량이 가볍습니다. 투명 배경이 필요한 로고나 아이콘은 <strong>PNG</strong>를 추천하며, 최신 웹사이트용으로 고화질과 초경량 용량을 모두 원하신다면 <strong>WEBP</strong>가 가장 우수합니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>이미지 파일 용량도 줄일 수 있나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>네. 이미지의 가로·세로 픽셀 수를 줄이거나, JPG/WEBP의 품질 슬라이더를 80~90% 수준으로 조절하면 화질 손실을 최소화하면서 파일 크기(KB/MB)를 크게 줄일 수 있습니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>업로드한 이미지가 서버에 저장되나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>아닙니다. Filewise의 이미지 크기 조절은 HTML5 Canvas API를 이용하여 사용자의 기기(브라우저) 내부에서 100% 로컬로 처리됩니다. 외부 서버로 이미지가 전송되지 않아 소중한 개인 사진도 안전하게 편집할 수 있습니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>모바일에서도 이미지 크기를 변경할 수 있나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>네. 스마트폰과 태블릿 환경에 맞춘 반응형 인터페이스를 지원하므로 모바일 갤러리에서 사진을 선택하여 손쉽게 크기를 조절하고 바로 저장할 수 있습니다.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 광고 영역 3 -->
+      <aside class="inner resize-ad-slot resize-ad-slot--faq" aria-label="광고 영역" data-ad-slot="resize-before-faq">
+        <span>광고</span>
+      </aside>
+    </main>
+
+    <div id="site-footer"></div>
+  </body>
+</html>

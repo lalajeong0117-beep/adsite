@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>이미지 색상 추출기 - HEX RGB 컬러 코드 추출 | Filewise</title>
+  <meta name="description" content="무료 온라인 이미지 색상 추출기. 사진에서 HEX, RGB, HSL 색상 코드를 추출하고 컬러 팔레트를 생성해 보세요. 색상 복사, 팔레트 다운로드, 색상 조합 분석까지 지원합니다.">
+  <meta property="og:title" content="이미지 색상 추출기 - Filewise">
+  <meta property="og:description" content="무료 온라인 이미지 색상 추출기. 사진에서 HEX, RGB, HSL 색상 코드를 추출하고 컬러 팔레트를 생성해 보세요.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/color.html">
+  <meta property="og:image" content="/assets/images/og-color.png">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/color.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script src="assets/js/common.js" defer></script>
+  <script src="assets/js/color.js" defer></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="color-main" id="top">
+    <section class="color-hero" aria-labelledby="color-title">
+      <div class="inner">
+        <h1 id="color-title">이미지 속 원하는 색상을 간편하게 추출하세요.</h1>
+        <p class="eyebrow">무료 이용 | HEX · RGB · HSL 지원 | 설치 없이 사용</p>
+        <p class="sub">이미지 파일을 업로드하고 클릭하면 색상 코드를 확인하고, 자동 팔레트와 조합까지 손쉽게 만들 수 있습니다.</p>
+      </div>
+    </section>
+    <section class="upload-section">
+      <h2>이미지 업로드</h2>
+      <div class="upload-zone" id="upload-zone">
+        <p>이미지를 끌어다 놓거나 클릭하여 선택하세요 (JPG, PNG, WEBP, 최대 15 MB)</p>
+        <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" hidden>
+        <button type="button" id="select-button" class="btn-primary">파일 선택</button>
+      </div>
+    </section>
+    <section class="preview-section" hidden id="preview-section">
+      <h2>이미지 미리보기</h2>
+      <canvas id="image-canvas" class="image-canvas" tabindex="0"></canvas>
+      <div class="magnifier" id="magnifier" hidden></div>
+    </section>
+    <section class="color-info" hidden id="color-info">
+      <h2>선택 색상 정보</h2>
+      <div class="color-swatch" id="color-swatch"></div>
+      <ul class="color-codes">
+        <li>HEX: <span id="hex-code"></span> <button class="copy-btn" data-clipboard-target="hex-code">복사</button></li>
+        <li>RGB: <span id="rgb-code"></span> <button class="copy-btn" data-clipboard-target="rgb-code">복사</button></li>
+        <li>HSL: <span id="hsl-code"></span> <button class="copy-btn" data-clipboard-target="hsl-code">복사</button></li>
+        <li>밝기: <span id="luminosity"></span></li>
+      </ul>
+    </section>
+    <section class="palette-section" hidden id="palette-section">
+      <h2>자동 컬러 팔레트</h2>
+      <label for="palette-size">팔레트 색상 수:</label>
+      <select id="palette-size">
+        <option value="5">5색</option>
+        <option value="8">8색</option>
+        <option value="10">10색</option>
+      </select>
+      <button type="button" id="generate-palette" class="btn-primary">팔레트 생성</button>
+      <div class="palette-cards" id="palette-cards"></div>
+      <div class="palette-downloads">
+        <button type="button" id="download-png" class="btn-secondary">PNG 다운로드</button>
+        <button type="button" id="download-css" class="btn-secondary">CSS 변수 다운로드</button>
+        <button type="button" id="download-txt" class="btn-secondary">TXT 다운로드</button>
+      </div>
+    </section>
+    <section class="harmony-section" hidden id="harmony-section">
+      <h2>추천 색상 조합</h2>
+      <div class="harmony-cards" id="harmony-cards"></div>
+    </section>
+    <section class="contrast-section" hidden id="contrast-section">
+      <h2>색상 대비 검사</h2>
+      <label for="bg-color">배경 색상:</label>
+      <input type="color" id="bg-color" value="#ffffff">
+      <label for="text-color">글자 색상:</label>
+      <input type="color" id="text-color" value="#000000">
+      <button type="button" id="check-contrast" class="btn-primary">대비 확인</button>
+      <div id="contrast-result"></div>
+    </section>
+    <section class="recent-section" hidden id="recent-section">
+      <h2>최근 선택 색상</h2>
+      <div class="recent-colors" id="recent-colors"></div>
+      <button type="button" id="clear-recent" class="btn-danger">전체 삭제</button>
+    </section>
+    <section class="faq-section">
+      <h2>사용 방법 & FAQ</h2>
+      <ol>
+        <li>이미지를 업로드하고 캔버스를 클릭하거나 터치합니다.</li>
+        <li>선택된 색상의 HEX / RGB / HSL 코드를 확인하고 복사합니다.</li>
+        <li>‘팔레트 생성’ 버튼을 눌러 대표 색상을 추출하고 다운로드합니다.</li>
+        <li>‘추천 색상 조합’ 섹션에서 보색·유사색·삼각·단색계열을 확인합니다.</li>
+        <li>‘색상 대비 검사’에서 텍스트와 배경 색상의 WCAG 대비를 확인합니다.</li>
+      </ol>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

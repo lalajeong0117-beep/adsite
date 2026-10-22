@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f8f6">
+    <meta name="description" content="이미지부터 PDF까지 파일을 브라우저에서 변환하고 실제 결과 파일을 다운로드하세요.">
+    <title>파일 형식 변환 - Filewise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/commons.css">
+    <link rel="stylesheet" href="assets/css/convert.css">
+    <link rel="stylesheet" href="assets/css/pdf-convert.css">
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+    <script>window.heic2any || document.write('<script src="assets/vendor/heic2any.min.js"><\/script>')</script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script>window.JSZip || document.write('<script src="assets/vendor/jszip.min.js"><\/script>')</script>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script>window.PDFLib || document.write('<script src="assets/vendor/pdf-lib.min.js"><\/script>')</script>
+    <script src="assets/js/common.js" defer></script>
+    <script src="assets/js/convert.js" defer></script>
+    <script src="assets/js/pdf-convert.js" defer></script>
+  </head>
+  <body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden>
+      <symbol id="icon-mark" viewBox="0 0 24 24"><path d="M7 7h10v10H7z"/><path d="M4 10V4h6M20 14v6h-6M8 12h8M12 8v8"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="icon-upload" viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M5 14v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/></symbol>
+      <symbol id="icon-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></symbol>
+      <symbol id="icon-remove" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6m4-6v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 17v4h14v-4"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3m-4 5v2"/></symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    </svg>
+
+    <div id="site-header"></div>
+
+    <main class="convert-main" id="top">
+      <section class="convert-intro inner" aria-labelledby="convert-title">
+        <div>
+          <span class="eyebrow">파일 변환</span>
+          <h1 id="convert-title">파일 형식을<br><span>자유롭게 변환하세요.</span></h1>
+          <p>이미지부터 PDF까지, 복잡한 프로그램 설치 없이 간편하게 변환하세요.</p>
+        </div>
+        <div class="format-stamp" aria-label="지원 형식: JPG, PNG, WebP">
+          <span>JPG</span><svg class="icon"><use href="#icon-arrow"></use></svg><span>PNG</span><svg class="icon"><use href="#icon-arrow"></use></svg><span>PDF</span>
+        </div>
+      </section>
+
+      <nav class="converter-tabs inner" aria-label="변환 도구">
+        <button class="converter-tab is-active" id="image-tab" type="button" role="tab" aria-selected="true" aria-controls="image-convert-panel">이미지 변환</button>
+        <button class="converter-tab" id="pdf-tab" type="button" role="tab" aria-selected="false" aria-controls="pdf-convert-panel">PDF 도구</button>
+      </nav>
+
+      <section class="converter inner" id="image-convert-panel" role="tabpanel" aria-labelledby="image-tab" aria-label="이미지 파일 변환기">
+        <div class="converter-workspace">
+          <div class="converter-main-panel">
+            <div class="panel-heading">
+              <div><span class="panel-kicker">01 / 파일 선택</span><h2>변환할 이미지를 추가하세요</h2></div>
+              <span class="local-badge"><svg class="icon"><use href="#icon-lock"></use></svg>기기에서 처리</span>
+            </div>
+
+            <div class="convert-dropzone" id="convert-dropzone" aria-describedby="convert-file-help">
+              <span class="convert-upload-icon"><svg class="icon"><use href="#icon-upload"></use></svg></span>
+              <p class="dropzone-title">이미지를 여기에 놓으세요</p>
+              <p class="dropzone-subtitle">또는 기기에서 파일을 선택하세요</p>
+              <input class="sr-only" id="convert-file-input" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.jpg,.jpeg,.png,.webp,.heic,.heif" multiple aria-label="변환할 이미지 선택">
+              <label class="btn btn-secondary" for="convert-file-input">이미지 선택</label>
+            </div>
+            <p class="file-help" id="convert-file-help">JPG, PNG, WebP, HEIC · 파일당 최대 50 MB · 한 번에 20개까지</p>
+
+            <div class="convert-file" id="convert-file" hidden>
+              <ul class="convert-file-list" id="convert-file-list"></ul>
+            </div>
+            <p class="convert-status" id="convert-status" role="status" aria-live="polite"></p>
+
+            <div class="convert-settings">
+              <div class="panel-heading settings-heading">
+                <div><span class="panel-kicker">02 / 변환 설정</span><h2>출력 형식</h2></div>
+              </div>
+              <div class="settings-row">
+                <label class="format-label" for="output-format">다음 형식으로 변환</label>
+                <select id="output-format" aria-label="변환할 이미지 형식">
+                </select>
+              </div>
+              <div class="quality-setting" id="quality-setting">
+                <div class="quality-heading"><label for="output-quality">이미지 품질</label><output id="quality-value" for="output-quality">85%</output></div>
+                <input id="output-quality" type="range" min="10" max="100" value="85">
+                <div class="range-labels"><span>작은 파일</span><span>선명한 이미지</span></div>
+              </div>
+              <p class="format-note" id="format-note">기기에서 실제로 변환할 수 있는 형식만 표시됩니다.</p>
+            </div>
+
+            <button class="btn btn-primary convert-button" id="convert-button" type="button" disabled>
+              <svg class="icon"><use href="#icon-image"></use></svg><span>이미지 변환하기</span>
+            </button>
+
+            <section class="convert-result" id="convert-result" aria-labelledby="result-title" hidden>
+              <div class="result-topline"><h2 id="result-title"><svg class="icon"><use href="#icon-check"></use></svg>변환 완료</h2><span id="result-format" class="result-format"></span></div>
+              <p class="result-summary" id="result-summary"></p>
+              <ul class="converted-file-list" id="converted-file-list"></ul>
+              <button class="btn btn-secondary result-download" id="download-results" type="button" disabled><svg class="icon"><use href="#icon-download"></use></svg><span>변환 파일 다운로드</span></button>
+            </section>
+          </div>
+
+          <aside class="converter-aside" aria-label="변환 안내">
+            <div class="aside-note">
+              <span class="aside-number">A</span>
+              <h2>투명 배경은<br>어떻게 되나요?</h2>
+              <p>JPG는 투명도를 지원하지 않아 투명한 영역이 흰색으로 채워집니다. PNG나 WebP는 투명도를 유지합니다.</p>
+            </div>
+            <div class="aside-note">
+              <span class="aside-number">B</span>
+              <h2>원본은 안전하게</h2>
+              <p>이미지 변환은 브라우저에서만 실행됩니다. 선택한 파일이 서버로 업로드되지 않습니다.</p>
+            </div>
+            <div class="format-key" aria-label="이미지 형식 안내">
+              <div><strong>JPG</strong><span>사진에 적합</span></div>
+              <div><strong>PNG</strong><span>투명 배경 지원</span></div>
+              <div><strong>WebP</strong><span>웹에 적합</span></div>
+            </div>
+            <p class="aside-disclaimer">HEIC 변환 결과에는 원본 사진의 메타데이터가 포함되지 않습니다.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="pdf-converter inner" id="pdf-convert-panel" role="tabpanel" aria-labelledby="pdf-tab" aria-label="PDF 파일 도구" hidden>
+        <div class="pdf-workspace">
+          <div class="pdf-main-panel">
+            <div class="panel-heading">
+              <div><span class="panel-kicker">PDF WORKSPACE</span><h2>PDF와 이미지를 한곳에서</h2></div>
+              <span class="local-badge"><svg class="icon"><use href="#icon-lock"></use></svg>기기에서 처리</span>
+            </div>
+
+            <div class="pdf-mode-list" role="tablist" aria-label="PDF 작업 선택">
+              <button class="pdf-mode is-active" type="button" role="tab" aria-selected="true" data-pdf-mode="image-to-pdf">이미지 → PDF</button>
+              <button class="pdf-mode" type="button" role="tab" aria-selected="false" data-pdf-mode="pdf-to-image">PDF → 이미지</button>
+              <button class="pdf-mode" type="button" role="tab" aria-selected="false" data-pdf-mode="merge">PDF 병합</button>
+              <button class="pdf-mode" type="button" role="tab" aria-selected="false" data-pdf-mode="edit">페이지 편집</button>
+            </div>
+
+            <div class="pdf-task-heading">
+              <h3 id="pdf-task-title">이미지를 PDF로 만들기</h3>
+              <p id="pdf-task-description">이미지를 순서대로 추가해 하나의 PDF로 합치거나, 이미지별 PDF를 만드세요.</p>
+            </div>
+
+            <div class="pdf-dropzone" id="pdf-dropzone" aria-describedby="pdf-file-help">
+              <span class="convert-upload-icon"><svg class="icon"><use href="#icon-upload"></use></svg></span>
+              <p class="dropzone-title" id="pdf-drop-title">이미지 파일을 여기에 놓으세요</p>
+              <p class="dropzone-subtitle" id="pdf-drop-subtitle">JPG, PNG, WebP 이미지를 지원합니다</p>
+              <input class="sr-only" id="pdf-file-input" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" multiple aria-label="PDF 작업에 사용할 이미지 또는 PDF 선택">
+              <label class="btn btn-secondary" for="pdf-file-input">파일 선택</label>
+            </div>
+            <p class="file-help" id="pdf-file-help">파일당 최대 50 MB · 한 번에 최대 20개 · 총 100 MB</p>
+
+            <div class="pdf-file-panel" id="pdf-file-panel" hidden>
+              <div class="pdf-file-heading"><strong id="pdf-file-count"></strong><span id="pdf-file-total"></span></div>
+              <ol class="pdf-file-list" id="pdf-file-list"></ol>
+            </div>
+
+            <div class="pdf-options" id="image-pdf-options">
+              <fieldset class="pdf-choice-group">
+                <legend>PDF 생성 방식</legend>
+                <label><input type="radio" name="image-pdf-mode" value="combined" checked><span>하나의 PDF로 합치기</span></label>
+                <label><input type="radio" name="image-pdf-mode" value="individual"><span>이미지별 PDF 만들기</span></label>
+              </fieldset>
+              <label class="pdf-check-option"><input id="fit-images" type="checkbox" checked><span>이미지 비율 유지하여 페이지에 맞춤</span></label>
+            </div>
+
+            <div class="pdf-options" id="pdf-render-options" hidden>
+              <div class="pdf-settings-row">
+                <label for="pdf-image-format">이미지 형식</label>
+                <select id="pdf-image-format"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option></select>
+              </div>
+              <div class="pdf-settings-row">
+                <label for="pdf-page-range">페이지 범위</label>
+                <input id="pdf-page-range" type="text" inputmode="text" placeholder="전체 또는 1, 3-5" aria-describedby="pdf-page-range-help">
+              </div>
+              <p class="pdf-field-help" id="pdf-page-range-help">비워 두면 전체 페이지를 변환합니다. 예: 1, 3-5</p>
+              <div class="pdf-settings-row">
+                <label for="pdf-render-scale">출력 해상도</label>
+                <select id="pdf-render-scale"><option value="1">화면용 · 1×</option><option value="1.5" selected>표준 · 1.5×</option><option value="2">고해상도 · 2×</option></select>
+              </div>
+              <div class="quality-setting" id="pdf-jpg-quality">
+                <div class="quality-heading"><label for="pdf-quality">JPG 품질</label><output id="pdf-quality-value" for="pdf-quality">85%</output></div>
+                <input id="pdf-quality" type="range" min="10" max="100" value="85">
+                <div class="range-labels"><span>작은 파일</span><span>선명한 이미지</span></div>
+              </div>
+            </div>
+
+            <div class="pdf-options" id="pdf-edit-options" hidden>
+              <div class="pdf-settings-row">
+                <label for="pdf-edit-operation">편집 작업</label>
+                <select id="pdf-edit-operation">
+                  <option value="reorder">페이지 순서 변경</option>
+                  <option value="extract">페이지 추출</option>
+                  <option value="split">페이지별 분할</option>
+                  <option value="rotate">페이지 회전</option>
+                  <option value="delete">페이지 삭제</option>
+                </select>
+              </div>
+              <div class="pdf-settings-row" id="pdf-edit-range-row" hidden>
+                <label for="pdf-edit-range">페이지 범위</label>
+                <input id="pdf-edit-range" type="text" inputmode="text" placeholder="예: 1, 3-5">
+              </div>
+              <div class="pdf-settings-row" id="pdf-rotate-row" hidden>
+                <label for="pdf-rotation">회전 각도</label>
+                <select id="pdf-rotation"><option value="90">오른쪽 90°</option><option value="180">180°</option><option value="270">왼쪽 90°</option></select>
+              </div>
+              <p class="pdf-field-help" id="pdf-edit-help">페이지 카드를 드래그해 순서를 바꾸세요.</p>
+              <ol class="pdf-page-list" id="pdf-page-list" aria-label="PDF 페이지 목록"></ol>
+            </div>
+
+            <p class="pdf-status" id="pdf-status" role="status" aria-live="polite"></p>
+            <div class="pdf-progress" id="pdf-progress" hidden><progress id="pdf-progress-bar" max="100" value="0"></progress><span id="pdf-progress-label"></span></div>
+            <button class="btn btn-primary pdf-run-button" id="pdf-run-button" type="button" disabled><svg class="icon"><use href="#icon-check"></use></svg><span>PDF 만들기</span></button>
+
+            <section class="convert-result pdf-result" id="pdf-result" aria-labelledby="pdf-result-title" hidden>
+              <div class="result-topline"><h2 id="pdf-result-title"><svg class="icon"><use href="#icon-check"></use></svg>작업 완료</h2><span id="pdf-result-format" class="result-format"></span></div>
+              <p class="result-summary" id="pdf-result-summary"></p>
+              <ul class="converted-file-list" id="pdf-result-files"></ul>
+              <div class="pdf-download-actions">
+                <button class="btn btn-secondary" id="pdf-download-all" type="button" disabled><svg class="icon"><use href="#icon-download"></use></svg><span>전체 다운로드</span></button>
+                <button class="btn btn-primary" id="pdf-download-zip" type="button" disabled><svg class="icon"><use href="#icon-download"></use></svg><span>ZIP 다운로드</span></button>
+              </div>
+            </section>
+          </div>
+
+          <aside class="converter-aside pdf-aside" aria-label="PDF 변환 안내">
+            <div class="aside-note"><span class="aside-number">01</span><h2>브라우저에서 직접 처리</h2><p>PDF와 이미지 파일은 사용자의 기기에서 처리되며 서버로 업로드되지 않습니다.</p></div>
+            <div class="aside-note"><span class="aside-number">02</span><h2>기기 성능 안내</h2><p>페이지가 많거나 고해상도 PDF는 메모리를 더 사용할 수 있습니다. 큰 파일은 표준 해상도로 나누어 처리하세요.</p></div>
+            <div class="format-key"><div><strong>PDF</strong><span>문서 공유</span></div><div><strong>JPG</strong><span>사진·미리보기</span></div><div><strong>PNG</strong><span>선명한 페이지</span></div></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section tools-section" id="popular-conversions" aria-labelledby="popular-conversions-title">
+        <div class="inner">
+          <div class="section-heading">
+            <span class="eyebrow">형식 선택</span>
+            <h2 id="popular-conversions-title">자주 사용하는 변환</h2>
+            <p>실제로 지원되는 변환을 선택하면 해당 형식이 미리 설정됩니다.</p>
+          </div>
+          <ul class="tool-list">
+            <li><a class="tool-card" href="/convert?format=image/png#image-convert-panel"><span class="tool-icon">JPG</span><span class="tool-copy"><strong>JPG → PNG</strong><span>투명 배경을 유지하는 이미지</span></span><svg class="icon tool-arrow"><use href="#icon-arrow"></use></svg></a></li>
+            <li><a class="tool-card" href="/convert?format=image/jpeg#image-convert-panel"><span class="tool-icon">PNG</span><span class="tool-copy"><strong>PNG → JPG</strong><span>사진에 적합한 이미지</span></span><svg class="icon tool-arrow"><use href="#icon-arrow"></use></svg></a></li>
+            <li><a class="tool-card" href="/convert?format=image/webp#image-convert-panel"><span class="tool-icon">WEBP</span><span class="tool-copy"><strong>JPG · PNG → WebP</strong><span>웹에 적합한 이미지</span></span><svg class="icon tool-arrow"><use href="#icon-arrow"></use></svg></a></li>
+            <li><a class="tool-card" href="/convert?tool=pdf&amp;mode=image-to-pdf#pdf-convert-panel"><span class="tool-icon">PDF</span><span class="tool-copy"><strong>JPG · PNG → PDF</strong><span>비율을 유지한 문서 만들기</span></span><svg class="icon tool-arrow"><use href="#icon-arrow"></use></svg></a></li>
+            <li><a class="tool-card" href="/convert?tool=pdf&amp;mode=pdf-to-image&amp;format=image/jpeg#pdf-convert-panel"><span class="tool-icon">PDF</span><span class="tool-copy"><strong>PDF → JPG</strong><span>필요한 페이지를 이미지로</span></span><svg class="icon tool-arrow"><use href="#icon-arrow"></use></svg></a></li>
+            <li><a class="tool-card" href="/convert?tool=pdf&amp;mode=pdf-to-image&amp;format=image/png#pdf-convert-panel"><span class="tool-icon">PDF</span><span class="tool-copy"><strong>PDF → PNG</strong><span>선명한 페이지 이미지</span></span><svg class="icon tool-arrow"><use href="#icon-arrow"></use></svg></a></li>
+            <li><span class="tool-card tool-card-unavailable"><span class="tool-icon">DOC</span><span class="tool-copy"><strong>Word → PDF</strong><span>준비 중</span></span></span></li>
+            <li><span class="tool-card tool-card-unavailable"><span class="tool-icon">PPT</span><span class="tool-copy"><strong>PowerPoint → PDF</strong><span>준비 중</span></span></span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section steps-section" aria-labelledby="convert-steps-title">
+        <div class="inner">
+          <div class="section-heading"><span class="eyebrow">간단한 세 단계</span><h2 id="convert-steps-title">파일을 선택하고 바로 변환하세요.</h2></div>
+          <ol class="step-list">
+            <li class="step-card"><div class="step-topline"><span class="step-number">01</span></div><h3>파일 선택</h3><p>변환할 이미지를 선택하거나 업로드 영역에 놓으세요.</p></li>
+            <li class="step-card"><div class="step-topline"><span class="step-number">02</span></div><h3>형식 지정</h3><p>지원되는 출력 형식과 이미지 품질을 선택하세요.</p></li>
+            <li class="step-card"><div class="step-topline"><span class="step-number">03</span></div><h3>다운로드</h3><p>형식과 실제 파일 크기를 확인하고 저장하세요.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section features-section" aria-labelledby="convert-features-title">
+        <div class="inner">
+          <div class="section-heading"><span class="eyebrow">Filewise</span><h2 id="convert-features-title">간편하고 안전한 변환</h2></div>
+          <ul class="feature-list">
+            <li class="feature-card"><span class="feature-icon"><svg class="icon"><use href="#icon-clock"></use></svg></span><h3>설치 없이 사용</h3><p>브라우저에서 파일을 선택하고 바로 변환합니다.</p></li>
+            <li class="feature-card"><span class="feature-icon"><svg class="icon"><use href="#icon-lock"></use></svg></span><h3>기기 안에서 처리</h3><p>선택한 파일은 변환을 위해 외부로 전송되지 않습니다.</p></li>
+            <li class="feature-card"><span class="feature-icon"><svg class="icon"><use href="#icon-check"></use></svg></span><h3>결과 파일 검증</h3><p>다운로드 전에 파일 형식과 열기를 확인합니다.</p></li>
+            <li class="feature-card"><span class="feature-icon"><svg class="icon"><use href="#icon-globe"></use></svg></span><h3>다양한 기기</h3><p>데스크톱과 모바일 브라우저에서 이용할 수 있습니다.</p></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <div id="site-footer"></div>
+  </body>
+</html>

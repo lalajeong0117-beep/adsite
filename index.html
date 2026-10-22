@@ -1,0 +1,190 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f8f6">
+    <meta name="description" content="PDF, 이미지, 동영상, 문서의 용량을 간편하게 줄여보세요. 복잡한 설정 없이 빠르고 쉽게 파일을 압축할 수 있습니다.">
+    <title>Filewise - 파일 용량 줄이기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/commons.css">
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script>window.PDFLib || document.write('<script src="assets/vendor/pdf-lib.min.js"><\/script>')</script>
+    <script src="assets/js/common.js" defer></script>
+  </head>
+  <body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden>
+      <symbol id="icon-upload" viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M5 14v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/></symbol>
+      <symbol id="icon-file" viewBox="0 0 24 24"><path d="M13 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10z"/><path d="M13 3v7h7M8 15h8M8 18h5"/></symbol>
+      <symbol id="icon-remove" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6m4-6v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3zM19 16l1 2.5 2.5 1-2.5 1L19 23l-1-2.5-2.5-1 2.5-1L19 16z"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="icon-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></symbol>
+      <symbol id="icon-video" viewBox="0 0 24 24"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="m16 10 5-3v10l-5-3z"/></symbol>
+      <symbol id="icon-doc" viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5z"/><path d="M14 3v5h5M8 12h8M8 16h8"/></symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3m-4 5v2"/></symbol>
+      <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 17v4h14v-4"/></symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    </svg>
+
+    <div id="site-header"></div>
+
+    <main id="top">
+      <!-- 메인 문구와 파일 업로드 -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="inner hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">파일은 가볍게, 여유 공간은 넉넉하게</span>
+            <h1 id="hero-title">파일 용량을<br><span>줄여보세요.</span></h1>
+            <p>복잡한 설정 없이 온라인에서 간편하게 압축하고, 중요한 품질은 그대로 유지하세요.</p>
+            <p class="trust-note"><svg class="icon"><use href="#icon-shield"></use></svg> 파일은 브라우저에서 처리되며 외부 서버로 전송되지 않습니다.</p>
+          </div>
+
+          <section class="upload-card" id="upload" aria-label="파일 압축">
+            <div class="upload-zone" id="upload-zone" role="group" aria-describedby="upload-help upload-limits">
+              <span class="upload-icon"><svg class="icon"><use href="#icon-upload"></use></svg></span>
+              <h2>파일을 여기에 놓으세요</h2>
+              <p>또는 기기에서 파일을 선택하세요</p>
+              <input class="sr-only" id="file-input" type="file" accept=".pdf,application/pdf" aria-label="압축할 PDF 파일 선택">
+              <label class="btn btn-secondary" for="file-input">파일 선택</label>
+            </div>
+            <div class="upload-meta" id="upload-limits">
+              <span id="upload-help">PDF 파일만 지원</span>
+              <span>최대 파일 크기: 100 MB</span>
+            </div>
+            <div class="file-details" id="file-details" hidden>
+              <span class="file-type-icon"><svg class="icon"><use href="#icon-file"></use></svg></span>
+              <div class="file-meta">
+                <p class="file-name" id="file-name"></p>
+                <p class="file-size" id="file-size"></p>
+              </div>
+              <button class="remove-file" id="remove-file" type="button" aria-label="선택한 파일 삭제">
+                <svg class="icon"><use href="#icon-remove"></use></svg>
+              </button>
+            </div>
+            <p class="upload-message" id="upload-message" role="status" aria-live="polite"></p>
+
+            <fieldset class="compression-options">
+              <legend>압축 수준 선택</legend>
+              <div class="option-list">
+                <label class="compression-option">
+                  <input type="radio" name="compression-level" value="quality">
+                  <span class="option-title">호환성 우선</span>
+                  <span class="option-description">객체 스트림 없이 저장해 호환성 우선</span>
+                </label>
+                <label class="compression-option">
+                  <input type="radio" name="compression-level" value="balanced" checked>
+                  <span class="option-recommended">추천</span>
+                  <span class="option-title">구조 최적화</span>
+                  <span class="option-description">객체 스트림을 사용해 구조 최적화</span>
+                </label>
+                <label class="compression-option">
+                  <input type="radio" name="compression-level" value="smallest" disabled>
+                  <span class="option-title">최소 용량</span>
+                  <span class="option-description">현재 브라우저 라이브러리에서 지원하지 않음</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <button class="btn btn-primary compress-button" id="compress-button" type="button">
+              <svg class="icon"><use href="#icon-spark"></use></svg>
+              <span>PDF 압축 시작</span>
+            </button>
+
+            <section class="compression-result" id="compression-result" aria-labelledby="result-title" aria-live="polite" hidden>
+              <div class="result-header">
+                <h2 class="result-heading" id="result-title"><svg class="icon"><use href="#icon-check"></use></svg> 처리 결과</h2>
+                <span class="result-badge">브라우저 처리</span>
+              </div>
+              <div class="result-stats">
+                <p class="result-stat"><span>원본 용량</span><strong id="original-size">-</strong></p>
+                <span class="result-divider" aria-hidden="true"></span>
+                <p class="result-stat"><span>압축 후 용량</span><strong id="compressed-size">-</strong></p>
+                <span class="result-divider" aria-hidden="true"></span>
+                <p class="result-stat result-stat-saved"><span>용량 변화</span><strong id="saved-percent">-</strong></p>
+              </div>
+              <p class="result-note" id="result-note">생성한 파일의 형식과 페이지 수를 확인합니다.</p>
+              <button class="btn btn-secondary download-button" id="download-button" type="button" disabled>
+                <svg class="icon"><use href="#icon-download"></use></svg>
+                압축 파일 다운로드
+              </button>
+            </section>
+          </section>
+        </div>
+      </section>
+
+      <!-- 자주 사용하는 압축 도구 -->
+      <section class="section tools-section" id="tools" aria-labelledby="tools-title">
+        <div class="inner">
+          <div class="section-heading">
+            <span class="eyebrow">파일 형식 선택</span>
+            <h2 id="tools-title">자주 사용하는 압축 도구</h2>
+            <p>압축할 파일 형식을 선택하세요.</p>
+          </div>
+          <ul class="tool-list">
+            <li><a class="tool-card" href="#upload"><span class="tool-icon"><svg class="icon"><use href="#icon-doc"></use></svg></span><span class="tool-copy"><strong>PDF 압축</strong><span>공유하기 편한 PDF</span></span><svg class="icon tool-arrow"><use href="#icon-arrow"></use></svg></a></li>
+            <li><a class="tool-card" href="compress.html?type=jpg"><span class="tool-icon"><svg class="icon"><use href="#icon-image"></use></svg></span><span class="tool-copy"><strong>JPG 압축</strong><span>가벼운 사진 파일</span></span><svg class="icon tool-arrow"><use href="#icon-arrow"></use></svg></a></li>
+            <li><a class="tool-card" href="compress.html?type=png"><span class="tool-icon"><svg class="icon"><use href="#icon-image"></use></svg></span><span class="tool-copy"><strong>PNG 압축</strong><span>투명 이미지를 다시 인코딩</span></span><svg class="icon tool-arrow"><use href="#icon-arrow"></use></svg></a></li>
+            <li><a class="tool-card" href="compress.html?type=mp4"><span class="tool-icon"><svg class="icon"><use href="#icon-video"></use></svg></span><span class="tool-copy"><strong>MP4 압축</strong><span>기기에서 동영상 재인코딩</span></span><svg class="icon tool-arrow"><use href="#icon-arrow"></use></svg></a></li>
+            <li><a class="tool-card" href="compress.html?type=word"><span class="tool-icon"><svg class="icon"><use href="#icon-doc"></use></svg></span><span class="tool-copy"><strong>Word 문서 압축</strong><span>DOCX 패키지 다시 압축</span></span><svg class="icon tool-arrow"><use href="#icon-arrow"></use></svg></a></li>
+            <li><a class="tool-card" href="compress.html?type=ppt"><span class="tool-icon"><svg class="icon"><use href="#icon-doc"></use></svg></span><span class="tool-copy"><strong>PPT 압축</strong><span>PPTX 패키지 다시 압축</span></span><svg class="icon tool-arrow"><use href="#icon-arrow"></use></svg></a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 이용 방법 -->
+      <section class="section steps-section" aria-labelledby="steps-title">
+        <div class="inner">
+          <div class="section-heading">
+            <span class="eyebrow">간단한 세 단계</span>
+            <h2 id="steps-title">간편하게 용량을 줄이세요</h2>
+            <p>파일을 선택하고, 압축한 뒤, 결과를 내려받으면 끝입니다.</p>
+          </div>
+          <ol class="step-list">
+            <li class="step-card">
+              <div class="step-topline"><span class="step-icon"><svg class="icon"><use href="#icon-upload"></use></svg></span><span class="step-number">01</span></div>
+              <h3>파일 업로드</h3>
+              <p>지원하는 파일을 선택하거나 업로드 영역에 놓으세요.</p>
+            </li>
+            <li class="step-card">
+              <div class="step-topline"><span class="step-icon"><svg class="icon"><use href="#icon-spark"></use></svg></span><span class="step-number">02</span></div>
+              <h3>압축하기</h3>
+              <p>원하는 용량과 품질에 맞춰 압축 수준을 선택하세요.</p>
+            </li>
+            <li class="step-card">
+              <div class="step-topline"><span class="step-icon"><svg class="icon"><use href="#icon-download"></use></svg></span><span class="step-number">03</span></div>
+              <h3>파일 다운로드</h3>
+              <p>용량을 줄인 파일을 내려받아 여유 공간을 확보하세요.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 서비스 장점 -->
+      <section class="section features-section" aria-labelledby="features-title">
+        <div class="inner">
+          <div class="section-heading">
+            <span class="eyebrow">일상에서 더 간편하게</span>
+            <h2 id="features-title">파일 관리가 쉬워집니다</h2>
+          </div>
+          <ul class="feature-list">
+            <li class="feature-card"><span class="feature-icon"><svg class="icon"><use href="#icon-clock"></use></svg></span><h3>빠른 작업</h3><p>몇 단계만 거치면 파일 용량을 간편하게 줄일 수 있습니다.</p></li>
+            <li class="feature-card"><span class="feature-icon"><svg class="icon"><use href="#icon-lock"></use></svg></span><h3>개인정보 보호</h3><p>파일은 기기 안에서 처리되며 서버로 업로드되지 않습니다.</p></li>
+            <li class="feature-card"><span class="feature-icon"><svg class="icon"><use href="#icon-check"></use></svg></span><h3>품질 고려</h3><p>필요한 파일에 맞는 압축 수준을 선택할 수 있습니다.</p></li>
+            <li class="feature-card"><span class="feature-icon"><svg class="icon"><use href="#icon-globe"></use></svg></span><h3>어디서나 이용</h3><p>데스크톱, 태블릿, 모바일 브라우저에서 사용할 수 있습니다.</p></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+  </body>
+</html>

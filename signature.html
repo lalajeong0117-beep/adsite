@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f8f6">
+    <meta name="description" content="무료 온라인 전자서명 만들기. 마우스나 손가락으로 서명을 작성하고 투명 배경 PNG 파일로 다운로드하세요. 회원가입 없이 간편하게 이용할 수 있습니다.">
+    <title>무료 전자서명 만들기 - 손글씨 사인 PNG 다운로드 | Filewise</title>
+    <meta property="og:title" content="무료 전자서명 만들기 - 손글씨 사인 PNG 다운로드 | Filewise">
+    <meta property="og:description" content="무료 온라인 전자서명 만들기. 마우스나 손가락으로 서명을 작성하고 투명 배경 PNG 파일로 다운로드하세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/signature.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/commons.css">
+    <link rel="stylesheet" href="assets/css/signature.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script src="assets/js/common.js" defer></script>
+    <script src="assets/js/signature.js" defer></script>
+  </head>
+  <body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden>
+      <symbol id="icon-mark" viewBox="0 0 24 24"><path d="M7 7h10v10H7z"/><path d="M4 10V4h6M20 14v6h-6M8 12h8M12 8v8"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/></symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 17v4h14v-4"/></symbol>
+      <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"/><path d="M10 11v6M14 11v6"/></symbol>
+      <symbol id="icon-undo" viewBox="0 0 24 24"><path d="M3 9h12a5 5 0 0 1 5 5 5 5 0 0 1-5 5H9"/><path d="m7 5-4 4 4 4"/></symbol>
+      <symbol id="icon-pen" viewBox="0 0 24 24"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    </svg>
+
+    <div id="site-header"></div>
+
+    <main class="signature-main" id="top">
+      <!-- 1. 메인 소개 영역 -->
+      <section class="signature-hero" aria-labelledby="signature-title">
+        <div class="inner signature-hero-inner">
+          <div class="signature-hero-text">
+            <span class="eyebrow">Filewise Signature</span>
+            <h1 id="signature-title">온라인에서 간편하게 나만의 서명을 만들어 보세요.</h1>
+            <p class="signature-sub">마우스나 손가락으로 서명을 작성하고 투명 PNG 이미지로 저장하세요.</p>
+            <div class="signature-notice-badges" aria-label="주요 특징">
+              <span class="notice-badge"><i class="notice-badge-dot" aria-hidden="true"></i>무료 이용</span>
+              <span class="notice-badge-divider" aria-hidden="true">|</span>
+              <span class="notice-badge"><i class="notice-badge-dot" aria-hidden="true"></i>회원가입 없음</span>
+              <span class="notice-badge-divider" aria-hidden="true">|</span>
+              <span class="notice-badge"><i class="notice-badge-dot" aria-hidden="true"></i>투명 배경 PNG 다운로드</span>
+            </div>
+          </div>
+          <div class="signature-hero-badge" aria-hidden="true">
+            <div class="signature-hero-card">
+              <div class="hero-card-header">
+                <span class="hero-card-dot red"></span>
+                <span class="hero-card-dot yellow"></span>
+                <span class="hero-card-dot green"></span>
+                <span class="hero-card-tag">Online Signature</span>
+              </div>
+              <div class="hero-card-preview">
+                <svg class="hero-sig-svg" viewBox="0 0 200 80" fill="none" stroke="currentColor">
+                  <path d="M20 50 Q 45 15, 70 45 T 120 35 T 170 45" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" fill="none"/>
+                  <path d="M40 55 C 80 65, 140 60, 180 50" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 3" fill="none"/>
+                </svg>
+                <span class="hero-card-caption">Transparent PNG Ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 광고 영역 1 -->
+      <aside class="inner signature-ad-slot" aria-label="광고 영역" data-ad-slot="signature-top">
+        <span>광고</span>
+      </aside>
+
+      <!-- 작업 영역 (Canvas + 컨트롤 + 다운로드) -->
+      <section class="inner signature-workspace" id="workspace" aria-labelledby="workspace-title">
+        <div class="signature-section-heading">
+          <div>
+            <span class="eyebrow">Electronic Signature Pad</span>
+            <h2 id="workspace-title">서명 작성하기</h2>
+          </div>
+          <span class="signature-device-note">
+            <i aria-hidden="true"></i>브라우저 자체 처리 (서버 저장 없음)
+          </span>
+        </div>
+
+        <div class="signature-card">
+          <!-- 도구 툴바: 색상, 굵기, 지우기/실행취소 -->
+          <div class="signature-toolbar" role="toolbar" aria-label="서명 도구 설정">
+            <!-- 3. 펜 색상 설정 -->
+            <div class="toolbar-group">
+              <span class="toolbar-label">펜 색상</span>
+              <div class="color-picker-group" role="radiogroup" aria-label="펜 색상">
+                <button type="button" class="color-btn is-active" data-color="#111827" style="--swatch-color: #111827;" aria-label="검정색 펜" aria-checked="true">
+                  <span class="color-swatch"></span>
+                  <span class="color-text">검정</span>
+                </button>
+                <button type="button" class="color-btn" data-color="#1d4ed8" style="--swatch-color: #1d4ed8;" aria-label="파란색 펜" aria-checked="false">
+                  <span class="color-swatch"></span>
+                  <span class="color-text">파랑</span>
+                </button>
+                <button type="button" class="color-btn" data-color="#dc2626" style="--swatch-color: #dc2626;" aria-label="빨간색 펜" aria-checked="false">
+                  <span class="color-swatch"></span>
+                  <span class="color-text">빨강</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 3. 펜 굵기 설정 (2~10px 조절) -->
+            <div class="toolbar-group toolbar-group--width">
+              <div class="toolbar-label-row">
+                <label for="pen-width-slider" class="toolbar-label">펜 굵기</label>
+                <span class="pen-width-display" id="pen-width-display">4px</span>
+              </div>
+              <div class="pen-width-controls">
+                <input type="range" id="pen-width-slider" min="2" max="10" step="1" value="4" aria-label="펜 굵기 조절 (2~10px)">
+                <div class="pen-width-presets" role="group" aria-label="굵기 빠른 선택">
+                  <button type="button" class="width-preset-btn" data-size="2" aria-label="2픽셀 얇게">2px</button>
+                  <button type="button" class="width-preset-btn is-active" data-size="4" aria-label="4픽셀 기본">4px</button>
+                  <button type="button" class="width-preset-btn" data-size="6" aria-label="6픽셀 보통">6px</button>
+                  <button type="button" class="width-preset-btn" data-size="8" aria-label="8픽셀 굵게">8px</button>
+                  <button type="button" class="width-preset-btn" data-size="10" aria-label="10픽셀 매우 굵게">10px</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. 지우기 및 실행 취소 버튼 -->
+            <div class="toolbar-group toolbar-group--actions">
+              <span class="toolbar-label">편집</span>
+              <div class="action-buttons">
+                <button type="button" class="btn btn-secondary action-btn" id="btn-undo" title="한 단계 실행 취소" disabled>
+                  <svg class="icon"><use href="#icon-undo"></use></svg>
+                  <span>실행 취소</span>
+                </button>
+                <button type="button" class="btn btn-secondary action-btn" id="btn-clear" title="전체 지우기" disabled>
+                  <svg class="icon"><use href="#icon-trash"></use></svg>
+                  <span>전체 지우기</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. 서명 작성 Canvas -->
+          <div class="signature-canvas-container" id="signature-canvas-container">
+            <canvas id="signature-canvas" aria-label="손글씨 서명 작성 영역"></canvas>
+            <div class="canvas-placeholder" id="canvas-placeholder" aria-hidden="true">
+              <svg class="placeholder-icon"><use href="#icon-pen"></use></svg>
+              <p class="placeholder-text">마우스나 손가락으로 이곳에 서명을 그려보세요.</p>
+              <div class="canvas-sign-guide">
+                <span class="guide-line"></span>
+                <span class="guide-text">서명란 (Sign Here)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. 배경 선택 & 6. PNG 다운로드 버튼 -->
+          <div class="signature-footer-panel">
+            <div class="bg-selector-wrap">
+              <span class="bg-selector-title">배경 선택</span>
+              <div class="bg-selector-options" role="radiogroup" aria-label="다운로드 배경 옵션">
+                <label class="bg-selector-item is-selected" id="label-bg-transparent">
+                  <input type="radio" name="signature-bg" value="transparent" id="bg-opt-transparent" checked>
+                  <span class="bg-badge bg-badge-transparent" aria-hidden="true"></span>
+                  <span class="bg-item-desc">
+                    <strong>투명 배경 PNG</strong>
+                    <small>문서 삽입 시 배경이 비침 (권장)</small>
+                  </span>
+                </label>
+                <label class="bg-selector-item" id="label-bg-white">
+                  <input type="radio" name="signature-bg" value="white" id="bg-opt-white">
+                  <span class="bg-badge bg-badge-white" aria-hidden="true"></span>
+                  <span class="bg-item-desc">
+                    <strong>흰색 배경 PNG</strong>
+                    <small>하얀 종이 배경으로 저장</small>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- 다운로드 버튼 영역 -->
+            <div class="download-action-area">
+              <div class="primary-download-row">
+                <button type="button" class="btn btn-primary download-primary-btn" id="btn-download-selected" disabled>
+                  <svg class="icon"><use href="#icon-download"></use></svg>
+                  <span id="download-selected-label">PNG 다운로드 (투명 배경)</span>
+                </button>
+              </div>
+              <div class="quick-download-row">
+                <button type="button" class="btn btn-secondary quick-btn" id="btn-download-transparent" disabled>
+                  <svg class="icon"><use href="#icon-download"></use></svg>
+                  <span>투명 PNG 다운로드</span>
+                </button>
+                <button type="button" class="btn btn-secondary quick-btn" id="btn-download-white" disabled>
+                  <svg class="icon"><use href="#icon-download"></use></svg>
+                  <span>흰색 PNG 다운로드</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <p class="status-message" id="signature-status-msg" role="status" aria-live="polite">
+            서명을 캔버스에 작성하면 다운로드 버튼이 활성화됩니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- 광고 영역 2 -->
+      <aside class="inner signature-ad-slot signature-ad-slot--faq" aria-label="광고 영역" data-ad-slot="signature-before-faq">
+        <span>광고</span>
+      </aside>
+
+      <!-- 7. 간단한 이용 방법 -->
+      <section class="inner signature-info-section" aria-labelledby="steps-heading">
+        <div class="section-heading">
+          <span class="eyebrow">How It Works</span>
+          <h2 id="steps-heading">간단한 이용 방법</h2>
+          <p>누구나 30초 안에 손글씨 서명 이미지를 만들고 내려받을 수 있습니다.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <h3>서명 그리기</h3>
+            <p>캔버스 위에 마우스 또는 손가락으로 자연스럽게 손글씨 서명을 작성합니다.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <h3>펜 색상 및 굵기 조절</h3>
+            <p>검정·파랑·빨강 3가지 펜 색상과 2~10px 굵기를 자유롭게 변경할 수 있습니다.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <h3>수정 및 취소</h3>
+            <p>잘못 그린 획은 '실행 취소'로 되돌리고, 필요 시 '전체 지우기'로 다시 시작합니다.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">04</div>
+            <h3>PNG 다운로드</h3>
+            <p>투명 또는 흰색 배경을 선택한 후 <code>filewise-signature.png</code> 파일로 바로 저장합니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. FAQ -->
+      <section class="inner signature-faq-section" aria-labelledby="faq-heading">
+        <div class="section-heading">
+          <span class="eyebrow">FAQ</span>
+          <h2 id="faq-heading">자주 묻는 질문</h2>
+          <p>전자서명 생성 도구에 대해 궁금한 점을 확인하세요.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-question">
+              <span>작성한 서명 이미지는 어떤 파일 형식으로 저장되나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>선명한 고해상도 PNG 파일(<code>filewise-signature.png</code>)로 저장됩니다. 투명 배경을 선택하면 서명 선만 깔끔하게 보관되어 문서에 바로 겹쳐 넣을 수 있습니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>작성한 서명이 서버로 전송되거나 저장되나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>아닙니다. 모든 서명 그리기 및 이미지 다운로드 작업은 사용자의 웹 브라우저 안에서만 안전하게 처리됩니다. 서버로 서명 데이터가 전송되거나 보관되지 않으므로 개인정보 유출 걱정 없이 안심하고 이용하실 수 있습니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>스마트폰이나 태블릿에서도 서명할 수 있나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>네. 모바일 터치 및 태블릿 스타일러스 펜(애플펜슬, S펜 등)을 완벽하게 지원합니다. 서명 작성 중 화면 스크롤이 발생하지 않도록 터치 제어가 최적화되어 있습니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>투명 배경 PNG는 어떤 용도로 활용할 수 있나요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>한글(HWP), MS Word, 엑셀, 파워포인트, PDF 전자계약서 등에 투명 서명 이미지를 삽입할 때 배경 흰 상자가 문서 내용을 가리지 않고 실제 도장이나 서명처럼 자연스럽게 얹어집니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>비용이나 회원가입이 필요한가요?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Filewise의 전자서명 만들기는 100% 무료 도구입니다. 회원가입이나 로그인 절차 없이 언제 어디서나 횟수 제한 없이 자유롭게 서명을 작성하고 다운로드할 수 있습니다.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+  </body>
+</html>

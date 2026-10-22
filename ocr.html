@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>이미지 글자 추출기 - 사진 속 텍스트 복사 및 OCR 변환 | Filewise</title>
+  <meta name="description" content="무료 온라인 OCR 글자 추출기. JPG, PNG, WEBP 이미지에서 한글·영어 텍스트를 추출하고 복사하거나 TXT 파일로 다운로드하세요.">
+  <meta property="og:title" content="이미지 글자 추출기 - Filewise">
+  <meta property="og:description" content="무료 온라인 OCR 글자 추출기. 한글·영어 텍스트를 추출하고 복사·다운로드하세요.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/ocr.html">
+  <meta property="og:image" content="/assets/images/og-ocr.png">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/ocr.css">
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js"></script>
+  <script>window.Tesseract || document.write('<script src="assets/vendor/tesseract.min.js"><\/script>')</script>
+  <script src="assets/js/common.js" defer></script>
+  <script src="assets/js/ocr.js" defer></script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="ocr-main" id="top">
+    <section class="ocr-hero" aria-labelledby="ocr-title">
+      <div class="inner">
+        <h1 id="ocr-title">이미지 속 글자를 간편하게 추출하세요.</h1>
+        <p class="eyebrow">무료 온라인 OCR</p>
+        <p class="sub">사진, 스크린샷, 문서 이미지에서 텍스트를 인식하고 복사하거나 TXT 파일로 다운로드하세요.</p>
+        <p class="note">한국어·영어 지원 | 무료 이용 | 설치 없이 사용</p>
+      </div>
+    </section>
+    <section class="ocr-workspace inner" id="workspace">
+      <div class="ocr-upload">
+        <input type="file" id="ocr-file-input" multiple accept="image/jpeg,image/jpg,image/png,image/webp" hidden>
+        <label for="ocr-file-input" class="btn btn-primary ocr-dropzone"><span>이미지 선택 또는 끌어오기</span></label>
+        <div id="ocr-file-list" class="file-list"></div>
+      </div>
+      <div class="ocr-settings">
+        <fieldset class="ocr-lang"><legend>언어 선택</legend>
+          <label><input type="checkbox" value="kor" checked> 한국어</label>
+          <label><input type="checkbox" value="eng" checked> 영어</label>
+        </fieldset>
+        <select id="ocr-psm">
+  <option value="AUTO">일반 문서 (AUTO)</option>
+  <option value="SINGLE_BLOCK" selected>단일 문단 (SINGLE_BLOCK)</option>
+  <option value="SINGLE_LINE">한 줄 텍스트 (SINGLE_LINE)</option>
+</select>
+<fieldset class="ocr-preprocess">
+  <legend>전처리 옵션</legend>
+  <label><input type="checkbox" id="preprocess-contrast"> 대비 강화</label>
+  <label><input type="checkbox" id="preprocess-grayscale"> 그레이스케일</label>
+  <label><input type="checkbox" id="preprocess-binarize"> 이진화</label>
+  <label><input type="checkbox" id="preprocess-upscale"> 확대 (2x)</label>
+</fieldset>
+<button class="btn btn-primary" id="ocr-start" disabled>글자 추출 시작</button>
+        <div id="ocr-status" class="status" aria-live="polite"></div>
+      </div>
+    </section>
+    <section class="ocr-result-panel inner" id="result-panel" hidden>
+      <div class="ocr-preview"><canvas id="ocr-canvas"></canvas></div>
+      <div class="ocr-output"><textarea id="ocr-text" rows="12"></textarea>
+        <div class="ocr-actions">
+          <button class="btn btn-secondary" id="ocr-copy">텍스트 복사</button>
+          <button class="btn btn-secondary" id="ocr-download">TXT 다운로드</button>
+        </div>
+      </div>
+    </section>
+    <div id="site-footer"></div>
+  </main>
+</body>
+</html>

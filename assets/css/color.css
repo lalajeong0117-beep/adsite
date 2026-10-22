@@ -1,0 +1,117 @@
+/* assets/css/color.css */
+/* Page‑specific styling for the Image Color Picker */
+
+.color-main {
+  font-family: 'Inter', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.color-hero .inner {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.upload-zone {
+  border: 2px dashed var(--color-primary, #ff6600);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.upload-zone.is-dragover {
+  background-color: rgba(255, 102, 0, 0.1);
+}
+
+#image-canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border: 1px solid #ddd;
+  cursor: crosshair;
+}
+
+.magnifier {
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 10;
+}
+
+.color-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.color-swatch {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.color-codes li {
+  margin: 0.3rem 0;
+}
+
+.copy-btn {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.palette-cards, .harmony-cards, .recent-colors {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.palette-card, .harmony-card, .recent-card {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.palette-card::after,
+.harmony-card::after,
+.recent-card::after {
+  content: attr(data-hex);
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  font-size: 0.7rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+}
+
+.palette-card {
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  .color-main { padding: 0.5rem; }
+  .upload-zone { padding: 1rem; }
+  .magnifier { width: 80px; height: 80px; }
+}
+
+@media (max-width: 480px) {
+  .color-info { flex-direction: column; }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "filewise-pdf-compressor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Filewise PDF compression website",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "express": "^5.1.0",
+    "heic2any": "^0.0.4",
+    "jsbarcode": "3.12.1",
+    "jszip": "^3.10.2",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.4.299",
+    "qrcode-generator": "^2.0.4",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "jsqr": "^1.4.0"
+  }
+}
