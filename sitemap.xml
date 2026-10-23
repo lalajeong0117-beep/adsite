@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 메인 / 홈 -->
+  <url>
+    <loc>https://lalajeong0117-beep.github.io/adsite/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 파일 압축 도구 -->
+  <url>
+    <loc>https://lalajeong0117-beep.github.io/adsite/compress.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 파일 변환 도구 -->
+  <url>
+    <loc>https://lalajeong0117-beep.github.io/adsite/convert.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- QR 코드 생성 도구 -->
+  <url>
+    <loc>https://lalajeong0117-beep.github.io/adsite/qr.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 바코드 생성 도구 -->
+  <url>
+    <loc>https://lalajeong0117-beep.github.io/adsite/barcode.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 이미지 글자 추출 (OCR) 도구 -->
+  <url>
+    <loc>https://lalajeong0117-beep.github.io/adsite/ocr.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 이미지 색상 추출기 -->
+  <url>
+    <loc>https://lalajeong0117-beep.github.io/adsite/color.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 전자서명 만들기 -->
+  <url>
+    <loc>https://lalajeong0117-beep.github.io/adsite/signature.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 글자 수 계산기 -->
+  <url>
+    <loc>https://lalajeong0117-beep.github.io/adsite/counter.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 이미지 크기 조절 -->
+  <url>
+    <loc>https://lalajeong0117-beep.github.io/adsite/resize.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

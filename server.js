@@ -72,6 +72,17 @@ app.get("/favicon.svg", (request, response) => {
   response.sendFile(path.join(__dirname, "favicon.svg"));
 });
 
+// Serve robots.txt and sitemap.xml
+app.get("/robots.txt", (request, response) => {
+  response.type("text/plain");
+  response.sendFile(path.join(__dirname, "robots.txt"));
+});
+
+app.get("/sitemap.xml", (request, response) => {
+  response.type("application/xml");
+  response.sendFile(path.join(__dirname, "sitemap.xml"));
+});
+
 
 
 
