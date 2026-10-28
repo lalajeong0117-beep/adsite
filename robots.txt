@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap URL
-Sitemap: https://lalajeong0117-beep.github.io/adsite/sitemap.xml
+Sitemap: https://adsite-dz6a.vercel.app/sitemap.xml
