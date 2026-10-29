@@ -24,6 +24,67 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((err) => console.warn("Header load warning:", err));
   }
 
+  const bannerContainer = document.querySelector("#site-banner");
+  if (bannerContainer) {
+    fetch("components/banner.html")
+      .then((response) => {
+        if (!response.ok) throw new Error("Banner fetch failed");
+        return response.text();
+      })
+      .then((markup) => {
+        bannerContainer.innerHTML = markup;
+        loadCoupangBanners();
+      })
+      .catch((err) => console.warn("Banner load warning:", err));
+  }
+
+  function loadCoupangBanners() {
+    function render() {
+      if (typeof PartnersCoupang === "undefined" || !PartnersCoupang.G) return;
+      const pcContainer = document.querySelector("#coupang-banner-pc");
+      const moContainer = document.querySelector("#coupang-banner-mo");
+
+      if (pcContainer && pcContainer.children.length === 0) {
+        new PartnersCoupang.G({
+          id: 1044376,
+          template: "carousel",
+          trackingCode: "AF9566632",
+          width: "680",
+          height: "140",
+          tsource: "",
+          container: pcContainer
+        });
+      }
+
+      if (moContainer && moContainer.children.length === 0) {
+        new PartnersCoupang.G({
+          id: 1044376,
+          template: "carousel",
+          trackingCode: "AF9566632",
+          width: "280",
+          height: "140",
+          tsource: "",
+          container: moContainer
+        });
+      }
+    }
+
+    if (typeof PartnersCoupang !== "undefined" && PartnersCoupang.G) {
+      render();
+    } else {
+      const existingScript = document.querySelector('script[src*="ads-partners.coupang.com/g.js"]');
+      if (existingScript) {
+        existingScript.addEventListener("load", render);
+      } else {
+        const script = document.createElement("script");
+        script.src = "https://ads-partners.coupang.com/g.js";
+        script.async = true;
+        script.onload = render;
+        document.head.appendChild(script);
+      }
+    }
+  }
+
   const footerContainer = document.querySelector("#site-footer");
   if (footerContainer) {
     fetch("components/footer.html")

@@ -1,446 +1,512 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f5f8f6">
-    <title>글자 수 세기·바이트 계산기 - 공백 포함 제외 실시간 확인 | Filewise</title>
-    <meta name="description" content="무료 온라인 글자 수 세기 및 바이트 계산기. 공백 포함·제외 글자 수, 단어 수, UTF-8 바이트를 실시간 확인하고 자기소개서 글자 수 제한도 간편하게 계산하세요.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://adsite-dz6a.vercel.app/counter.html">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Filewise">
-    <meta property="og:title" content="글자 수 세기·바이트 계산기 - Filewise">
-    <meta property="og:description" content="무료 온라인 글자 수 세기 및 바이트 계산기. 공백 포함·제외 글자 수, 단어 수, UTF-8 바이트를 실시간 확인하고 자기소개서 글자 수 제한도 간편하게 계산하세요.">
-    <meta property="og:url" content="https://adsite-dz6a.vercel.app/counter.html">
-    <meta property="og:locale" content="ko_KR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f8f6">
+  <title>글자 수 세기·바이트 계산기 - 공백 포함 제외 실시간 확인 | Filewise</title>
+  <meta name="description"
+    content="무료 온라인 글자 수 세기 및 바이트 계산기. 공백 포함·제외 글자 수, 단어 수, UTF-8 바이트를 실시간 확인하고 자기소개서 글자 수 제한도 간편하게 계산하세요.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://adsite-dz6a.vercel.app/counter.html">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="글자 수 세기·바이트 계산기 - Filewise">
-    <meta name="twitter:description" content="무료 온라인 글자 수 세기 및 바이트 계산기. 공백 포함·제외 글자 수, 단어 수, UTF-8 바이트를 실시간 확인하고 자기소개서 글자 수 제한도 간편하게 계산하세요.">
-    <meta name="twitter:url" content="https://adsite-dz6a.vercel.app/counter.html">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Filewise">
+  <meta property="og:title" content="글자 수 세기·바이트 계산기 - Filewise">
+  <meta property="og:description"
+    content="무료 온라인 글자 수 세기 및 바이트 계산기. 공백 포함·제외 글자 수, 단어 수, UTF-8 바이트를 실시간 확인하고 자기소개서 글자 수 제한도 간편하게 계산하세요.">
+  <meta property="og:url" content="https://adsite-dz6a.vercel.app/counter.html">
+  <meta property="og:locale" content="ko_KR">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/commons.css">
-    <link rel="stylesheet" href="assets/css/counter.css">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <script src="assets/js/common.js" defer></script>
-    <script src="assets/js/counter.js" defer></script>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="글자 수 세기·바이트 계산기 - Filewise">
+  <meta name="twitter:description"
+    content="무료 온라인 글자 수 세기 및 바이트 계산기. 공백 포함·제외 글자 수, 단어 수, UTF-8 바이트를 실시간 확인하고 자기소개서 글자 수 제한도 간편하게 계산하세요.">
+  <meta name="twitter:url" content="https://adsite-dz6a.vercel.app/counter.html">
 
-    <meta name="google-site-verification" content="RRtpzhihXONf1msRUi1bhpXbRjwD_6-vNjTh4L8oef0" />
-    <meta name="naver-site-verification" content="f524cdcee6e210c4b603ecbb5e3af8e19f0a73c7" />
-  </head>
-  <body>
-    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden>
-      <symbol id="icon-mark" viewBox="0 0 24 24"><path d="M7 7h10v10H7z"/><path d="M4 10V4h6M20 14v6h-6M8 12h8M12 8v8"/></symbol>
-      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
-      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
-      <symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/></symbol>
-      <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 17v4h14v-4"/></symbol>
-      <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"/><path d="M10 11v6M14 11v6"/></symbol>
-      <symbol id="icon-undo" viewBox="0 0 24 24"><path d="M3 9h12a5 5 0 0 1 5 5 5 5 0 0 1-5 5H9"/><path d="m7 5-4 4 4 4"/></symbol>
-      <symbol id="icon-copy" viewBox="0 0 24 24"><rect width="13" height="13" x="9" y="9" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
-      <symbol id="icon-clean" viewBox="0 0 24 24"><path d="m14 12-8.5 8.5a2.12 2.12 0 1 1-3-3L11 9"/><path d="M18 11l3-3a2.12 2.12 0 0 0-3-3l-3 3"/><path d="m9 7 8 8"/></symbol>
-      <symbol id="icon-wrap" viewBox="0 0 24 24"><path d="m3 6 18 0"/><path d="m3 12 15 0a3 3 0 0 1 3 3v0a3 3 0 0 1-3 3l-6 0"/><path d="m15 15-3 3 3 3"/></symbol>
-      <symbol id="icon-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
-    </svg>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/counter.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script src="assets/js/common.js" defer></script>
+  <script src="assets/js/counter.js" defer></script>
 
-    <div id="site-header"></div>
+  <meta name="google-site-verification" content="RRtpzhihXONf1msRUi1bhpXbRjwD_6-vNjTh4L8oef0" />
+  <meta name="naver-site-verification" content="f524cdcee6e210c4b603ecbb5e3af8e19f0a73c7" />
+</head>
 
-    <main class="counter-main" id="top">
-      <!-- 1. 메인 소개 영역 (Hero) -->
-      <section class="counter-hero" aria-labelledby="counter-title">
-        <div class="inner counter-hero-inner">
-          <div class="counter-hero-text">
-            <span class="eyebrow">Filewise Text Counter</span>
-            <h1 id="counter-title">글자 수부터 바이트까지 한 번에 계산하세요.</h1>
-            <p class="counter-sub">자기소개서, 블로그, 보고서에 필요한 글자 수와 바이트를 실시간으로 확인해 보세요.</p>
-            <div class="counter-notice-badges" aria-label="주요 특징">
-              <span class="notice-badge"><i class="notice-badge-dot" aria-hidden="true"></i>무료 이용</span>
-              <span class="notice-badge-divider" aria-hidden="true">|</span>
-              <span class="notice-badge"><i class="notice-badge-dot" aria-hidden="true"></i>실시간 계산</span>
-              <span class="notice-badge-divider" aria-hidden="true">|</span>
-              <span class="notice-badge"><i class="notice-badge-dot" aria-hidden="true"></i>회원가입 없음</span>
-            </div>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden>
+    <symbol id="icon-mark" viewBox="0 0 24 24">
+      <path d="M7 7h10v10H7z" />
+      <path d="M4 10V4h6M20 14v6h-6M8 12h8M12 8v8" />
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="m6 6 12 12M18 6 6 18" />
+    </symbol>
+    <symbol id="icon-spark" viewBox="0 0 24 24">
+      <path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z" />
+    </symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24">
+      <path d="M12 3v12m0 0 5-5m-5 5-5-5" />
+      <path d="M5 17v4h14v-4" />
+    </symbol>
+    <symbol id="icon-trash" viewBox="0 0 24 24">
+      <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z" />
+      <path d="M10 11v6M14 11v6" />
+    </symbol>
+    <symbol id="icon-undo" viewBox="0 0 24 24">
+      <path d="M3 9h12a5 5 0 0 1 5 5 5 5 0 0 1-5 5H9" />
+      <path d="m7 5-4 4 4 4" />
+    </symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24">
+      <rect width="13" height="13" x="9" y="9" rx="2" ry="2" />
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+    </symbol>
+    <symbol id="icon-clean" viewBox="0 0 24 24">
+      <path d="m14 12-8.5 8.5a2.12 2.12 0 1 1-3-3L11 9" />
+      <path d="M18 11l3-3a2.12 2.12 0 0 0-3-3l-3 3" />
+      <path d="m9 7 8 8" />
+    </symbol>
+    <symbol id="icon-wrap" viewBox="0 0 24 24">
+      <path d="m3 6 18 0" />
+      <path d="m3 12 15 0a3 3 0 0 1 3 3v0a3 3 0 0 1-3 3l-6 0" />
+      <path d="m15 15-3 3 3 3" />
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="M20 6 9 17l-5-5" />
+    </symbol>
+  </svg>
+
+  <div id="site-header"></div>
+
+  <div id="site-banner"></div>
+
+  <main class="counter-main" id="top">
+    <!-- 1. 메인 소개 영역 (Hero) -->
+    <section class="counter-hero" aria-labelledby="counter-title">
+      <div class="inner counter-hero-inner">
+        <div class="counter-hero-text">
+          <span class="eyebrow">Filewise Text Counter</span>
+          <h1 id="counter-title">글자 수부터 바이트까지 한 번에 계산하세요.</h1>
+          <p class="counter-sub">자기소개서, 블로그, 보고서에 필요한 글자 수와 바이트를 실시간으로 확인해 보세요.</p>
+          <div class="counter-notice-badges" aria-label="주요 특징">
+            <span class="notice-badge"><i class="notice-badge-dot" aria-hidden="true"></i>무료 이용</span>
+            <span class="notice-badge-divider" aria-hidden="true">|</span>
+            <span class="notice-badge"><i class="notice-badge-dot" aria-hidden="true"></i>실시간 계산</span>
+            <span class="notice-badge-divider" aria-hidden="true">|</span>
+            <span class="notice-badge"><i class="notice-badge-dot" aria-hidden="true"></i>회원가입 없음</span>
           </div>
-          <div class="counter-hero-badge" aria-hidden="true">
-            <div class="counter-hero-card">
-              <div class="hero-card-header">
-                <span class="hero-card-dot red"></span>
-                <span class="hero-card-dot yellow"></span>
-                <span class="hero-card-dot green"></span>
-                <span class="hero-card-tag">Realtime Counter</span>
+        </div>
+        <div class="counter-hero-badge" aria-hidden="true">
+          <div class="counter-hero-card">
+            <div class="hero-card-header">
+              <span class="hero-card-dot red"></span>
+              <span class="hero-card-dot yellow"></span>
+              <span class="hero-card-dot green"></span>
+              <span class="hero-card-tag">Realtime Counter</span>
+            </div>
+            <div class="hero-card-preview">
+              <div class="hero-metric-item">
+                <span class="hero-metric-label">공백 포함</span>
+                <span class="hero-metric-val">1,248자</span>
               </div>
-              <div class="hero-card-preview">
-                <div class="hero-metric-item">
-                  <span class="hero-metric-label">공백 포함</span>
-                  <span class="hero-metric-val">1,248자</span>
-                </div>
-                <div class="hero-metric-divider"></div>
-                <div class="hero-metric-item">
-                  <span class="hero-metric-label">UTF-8 바이트</span>
-                  <span class="hero-metric-val">3,120 B</span>
-                </div>
+              <div class="hero-metric-divider"></div>
+              <div class="hero-metric-item">
+                <span class="hero-metric-label">UTF-8 바이트</span>
+                <span class="hero-metric-val">3,120 B</span>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 광고 영역 1 -->
-      <aside class="inner counter-ad-slot" aria-label="광고 영역" data-ad-slot="counter-top">
-        <span>광고</span>
-      </aside>
+    <!-- 광고 영역 1 -->
+    <aside class="inner counter-ad-slot" aria-label="광고 영역" data-ad-slot="counter-top">
+      <span>광고</span>
+    </aside>
 
-      <!-- 작업 영역 (입력창 + 통계 카드 + 보조 기능 + 제한 확인) -->
-      <section class="inner counter-workspace" id="workspace" aria-labelledby="workspace-title">
-        <div class="counter-section-heading">
+    <!-- 작업 영역 (입력창 + 통계 카드 + 보조 기능 + 제한 확인) -->
+    <section class="inner counter-workspace" id="workspace" aria-labelledby="workspace-title">
+      <div class="counter-section-heading">
+        <div>
+          <span class="eyebrow">On-device Text Counter</span>
+          <h2 id="workspace-title">글자 수·바이트 실시간 계산</h2>
+        </div>
+        <span class="counter-device-note">
+          <i aria-hidden="true"></i>브라우저 자체 처리 (서버 전송 없음)
+        </span>
+      </div>
+
+      <!-- 2. 텍스트 입력창 카드 -->
+      <div class="counter-card counter-input-card">
+        <!-- 상단 툴바: 자동 저장 설정 & 안내 문구 -->
+        <div class="input-top-bar">
+          <div class="autosave-control">
+            <label class="autosave-label" for="autosave-checkbox">
+              <input type="checkbox" id="autosave-checkbox" checked>
+              <span class="toggle-slider" aria-hidden="true"></span>
+              <span class="autosave-text">자동 저장 켜짐</span>
+            </label>
+            <button type="button" class="btn-text-action" id="btn-clear-storage" title="브라우저에 보관된 임시 저장 텍스트를 삭제합니다">
+              저장 내용 비우기
+            </button>
+          </div>
+          <div class="autosave-status" id="autosave-status" aria-live="polite">
+            임시 저장 활성
+          </div>
+        </div>
+
+        <div class="privacy-notice-callout">
+          <svg class="notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span>작성 중인 텍스트는 이 브라우저에 임시 저장될 수 있습니다. 공용 PC에서는 사용 후 내용을 삭제해 주세요.</span>
+        </div>
+
+        <!-- 텍스트 영역 -->
+        <div class="textarea-wrapper">
+          <textarea id="counter-textarea" placeholder="여기에 글을 입력하거나 붙여넣으세요. 글자 수, 단어 수, 바이트가 실시간으로 자동 계산됩니다..."
+            rows="10" spellcheck="false" aria-label="글자 수 계산할 텍스트 입력창"></textarea>
+        </div>
+
+        <!-- 6. 텍스트 편집 보조 기능 툴바 -->
+        <div class="textarea-actions-toolbar" role="toolbar" aria-label="텍스트 편집 도구">
+          <div class="action-buttons-group">
+            <button type="button" class="btn btn-secondary action-btn" id="btn-copy">
+              <svg class="icon">
+                <use href="#icon-copy"></use>
+              </svg>
+              <span>전체 복사</span>
+            </button>
+            <button type="button" class="btn btn-secondary action-btn" id="btn-clean-spaces"
+              title="연속된 공백을 1개로 줄입니다 (줄바꿈 유지)">
+              <svg class="icon">
+                <use href="#icon-clean"></use>
+              </svg>
+              <span>공백 정리</span>
+            </button>
+            <button type="button" class="btn btn-secondary action-btn" id="btn-remove-newlines"
+              title="모든 줄바꿈을 띄어쓰기로 바꿉니다">
+              <svg class="icon">
+                <use href="#icon-wrap"></use>
+              </svg>
+              <span>줄바꿈 제거</span>
+            </button>
+            <button type="button" class="btn btn-secondary action-btn btn-danger-soft" id="btn-clear">
+              <svg class="icon">
+                <use href="#icon-trash"></use>
+              </svg>
+              <span>전체 지우기</span>
+            </button>
+            <button type="button" class="btn btn-secondary action-btn btn-undo-action" id="btn-undo-clear" hidden>
+              <svg class="icon">
+                <use href="#icon-undo"></use>
+              </svg>
+              <span>지운 글 복원</span>
+            </button>
+          </div>
+          <div class="download-action-group">
+            <button type="button" class="btn btn-primary action-btn" id="btn-download-txt">
+              <svg class="icon">
+                <use href="#icon-download"></use>
+              </svg>
+              <span>TXT 다운로드</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 상태 알림 토스트 (aria-live) -->
+        <div class="counter-toast" id="counter-toast" role="status" aria-live="polite"></div>
+      </div>
+
+      <!-- 3. 실시간 통계 카드 영역 -->
+      <div class="counter-stats-container">
+        <div class="stats-section-header">
+          <h3 class="stats-heading">실시간 통계</h3>
+          <span class="stats-subnote">입력 즉시 실시간 집계</span>
+        </div>
+
+        <div class="stats-cards-grid">
+          <!-- ① 공백 포함 글자 수 -->
+          <div class="stat-card">
+            <span class="stat-card-title">공백 포함</span>
+            <div class="stat-card-value" id="count-chars-with-spaces">0</div>
+            <span class="stat-card-desc">띄어쓰기·줄바꿈 포함 글자 수</span>
+          </div>
+
+          <!-- ② 공백 제외 글자 수 -->
+          <div class="stat-card">
+            <span class="stat-card-title">공백 제외</span>
+            <div class="stat-card-value" id="count-chars-no-spaces">0</div>
+            <span class="stat-card-desc">순수 문자(글자)만 집계</span>
+          </div>
+
+          <!-- ③ 단어 수 -->
+          <div class="stat-card">
+            <span class="stat-card-title">단어 수</span>
+            <div class="stat-card-value" id="count-words">0</div>
+            <span class="stat-card-desc">공백으로 구분된 어절 수</span>
+          </div>
+
+          <!-- ④ 줄 수 -->
+          <div class="stat-card">
+            <span class="stat-card-title">줄 수 (라인)</span>
+            <div class="stat-card-value" id="count-lines">0</div>
+            <span class="stat-card-desc">텍스트의 논리적 행 수</span>
+          </div>
+
+          <!-- ⑤ 바이트 수 (바이트 기준 설정 포함) -->
+          <div class="stat-card stat-card--bytes">
+            <div class="stat-card-header-row">
+              <span class="stat-card-title">바이트 크기</span>
+              <!-- 바이트 계산 옵션 토글 -->
+              <div class="byte-mode-toggle" role="radiogroup" aria-label="바이트 계산 기준">
+                <label class="byte-mode-item is-active" id="label-byte-utf8">
+                  <input type="radio" name="byte-mode" value="utf8" checked>
+                  <span>UTF-8</span>
+                </label>
+                <label class="byte-mode-item" id="label-byte-kr">
+                  <input type="radio" name="byte-mode" value="kr2byte">
+                  <span>한글 2B</span>
+                </label>
+              </div>
+            </div>
+            <div class="stat-card-value stat-card-value--bytes" id="count-bytes">0 <small>B</small></div>
+            <span class="stat-card-desc" id="byte-mode-desc">UTF-8 표준 인코딩 기준 (한글 3B, 영문 1B)</span>
+          </div>
+
+          <!-- 추가 통계: 문장 수 -->
+          <div class="stat-card">
+            <span class="stat-card-title">문장 수 (추정)</span>
+            <div class="stat-card-value" id="count-sentences">0</div>
+            <span class="stat-card-desc">마침표·물음표·느낌표 기준</span>
+          </div>
+        </div>
+
+        <!-- 바이트 계산 규칙 안내 박스 -->
+        <div class="byte-rules-note">
+          <strong>바이트 기준 안내</strong>
+          <p id="byte-rules-text">
+            <strong>UTF-8 모드:</strong> 영문·숫자·기호는 1바이트, 한글은 3바이트로 계산하는 실제 웹·시스템 표준 저장 크기입니다. (예: <code>ABC</code> 3B,
+            <code>가나다</code> 9B, <code>A가</code> 4B)<br>
+            <strong>한글 2바이트 간편 모드:</strong> 공공기관·취업 포털 등에서 관례적으로 적용하는 기준으로 한글(음절·자모)을 2바이트, 기본 ASCII를 1바이트로 계산한 추정치입니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 5. 글자 수 제한 확인 (자기소개서·보고서용) -->
+      <div class="counter-card counter-limit-card">
+        <div class="limit-header">
           <div>
-            <span class="eyebrow">On-device Text Counter</span>
-            <h2 id="workspace-title">글자 수·바이트 실시간 계산</h2>
+            <span class="eyebrow">Goal &amp; Limit</span>
+            <h3 class="limit-title">글자 수 제한 확인</h3>
           </div>
-          <span class="counter-device-note">
-            <i aria-hidden="true"></i>브라우저 자체 처리 (서버 전송 없음)
-          </span>
-        </div>
-
-        <!-- 2. 텍스트 입력창 카드 -->
-        <div class="counter-card counter-input-card">
-          <!-- 상단 툴바: 자동 저장 설정 & 안내 문구 -->
-          <div class="input-top-bar">
-            <div class="autosave-control">
-              <label class="autosave-label" for="autosave-checkbox">
-                <input type="checkbox" id="autosave-checkbox" checked>
-                <span class="toggle-slider" aria-hidden="true"></span>
-                <span class="autosave-text">자동 저장 켜짐</span>
-              </label>
-              <button type="button" class="btn-text-action" id="btn-clear-storage" title="브라우저에 보관된 임시 저장 텍스트를 삭제합니다">
-                저장 내용 비우기
-              </button>
-            </div>
-            <div class="autosave-status" id="autosave-status" aria-live="polite">
-              임시 저장 활성
-            </div>
-          </div>
-
-          <div class="privacy-notice-callout">
-            <svg class="notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <span>작성 중인 텍스트는 이 브라우저에 임시 저장될 수 있습니다. 공용 PC에서는 사용 후 내용을 삭제해 주세요.</span>
-          </div>
-
-          <!-- 텍스트 영역 -->
-          <div class="textarea-wrapper">
-            <textarea
-              id="counter-textarea"
-              placeholder="여기에 글을 입력하거나 붙여넣으세요. 글자 수, 단어 수, 바이트가 실시간으로 자동 계산됩니다..."
-              rows="10"
-              spellcheck="false"
-              aria-label="글자 수 계산할 텍스트 입력창"
-            ></textarea>
-          </div>
-
-          <!-- 6. 텍스트 편집 보조 기능 툴바 -->
-          <div class="textarea-actions-toolbar" role="toolbar" aria-label="텍스트 편집 도구">
-            <div class="action-buttons-group">
-              <button type="button" class="btn btn-secondary action-btn" id="btn-copy">
-                <svg class="icon"><use href="#icon-copy"></use></svg>
-                <span>전체 복사</span>
-              </button>
-              <button type="button" class="btn btn-secondary action-btn" id="btn-clean-spaces" title="연속된 공백을 1개로 줄입니다 (줄바꿈 유지)">
-                <svg class="icon"><use href="#icon-clean"></use></svg>
-                <span>공백 정리</span>
-              </button>
-              <button type="button" class="btn btn-secondary action-btn" id="btn-remove-newlines" title="모든 줄바꿈을 띄어쓰기로 바꿉니다">
-                <svg class="icon"><use href="#icon-wrap"></use></svg>
-                <span>줄바꿈 제거</span>
-              </button>
-              <button type="button" class="btn btn-secondary action-btn btn-danger-soft" id="btn-clear">
-                <svg class="icon"><use href="#icon-trash"></use></svg>
-                <span>전체 지우기</span>
-              </button>
-              <button type="button" class="btn btn-secondary action-btn btn-undo-action" id="btn-undo-clear" hidden>
-                <svg class="icon"><use href="#icon-undo"></use></svg>
-                <span>지운 글 복원</span>
-              </button>
-            </div>
-            <div class="download-action-group">
-              <button type="button" class="btn btn-primary action-btn" id="btn-download-txt">
-                <svg class="icon"><use href="#icon-download"></use></svg>
-                <span>TXT 다운로드</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- 상태 알림 토스트 (aria-live) -->
-          <div class="counter-toast" id="counter-toast" role="status" aria-live="polite"></div>
-        </div>
-
-        <!-- 3. 실시간 통계 카드 영역 -->
-        <div class="counter-stats-container">
-          <div class="stats-section-header">
-            <h3 class="stats-heading">실시간 통계</h3>
-            <span class="stats-subnote">입력 즉시 실시간 집계</span>
-          </div>
-
-          <div class="stats-cards-grid">
-            <!-- ① 공백 포함 글자 수 -->
-            <div class="stat-card">
-              <span class="stat-card-title">공백 포함</span>
-              <div class="stat-card-value" id="count-chars-with-spaces">0</div>
-              <span class="stat-card-desc">띄어쓰기·줄바꿈 포함 글자 수</span>
-            </div>
-
-            <!-- ② 공백 제외 글자 수 -->
-            <div class="stat-card">
-              <span class="stat-card-title">공백 제외</span>
-              <div class="stat-card-value" id="count-chars-no-spaces">0</div>
-              <span class="stat-card-desc">순수 문자(글자)만 집계</span>
-            </div>
-
-            <!-- ③ 단어 수 -->
-            <div class="stat-card">
-              <span class="stat-card-title">단어 수</span>
-              <div class="stat-card-value" id="count-words">0</div>
-              <span class="stat-card-desc">공백으로 구분된 어절 수</span>
-            </div>
-
-            <!-- ④ 줄 수 -->
-            <div class="stat-card">
-              <span class="stat-card-title">줄 수 (라인)</span>
-              <div class="stat-card-value" id="count-lines">0</div>
-              <span class="stat-card-desc">텍스트의 논리적 행 수</span>
-            </div>
-
-            <!-- ⑤ 바이트 수 (바이트 기준 설정 포함) -->
-            <div class="stat-card stat-card--bytes">
-              <div class="stat-card-header-row">
-                <span class="stat-card-title">바이트 크기</span>
-                <!-- 바이트 계산 옵션 토글 -->
-                <div class="byte-mode-toggle" role="radiogroup" aria-label="바이트 계산 기준">
-                  <label class="byte-mode-item is-active" id="label-byte-utf8">
-                    <input type="radio" name="byte-mode" value="utf8" checked>
-                    <span>UTF-8</span>
-                  </label>
-                  <label class="byte-mode-item" id="label-byte-kr">
-                    <input type="radio" name="byte-mode" value="kr2byte">
-                    <span>한글 2B</span>
-                  </label>
-                </div>
-              </div>
-              <div class="stat-card-value stat-card-value--bytes" id="count-bytes">0 <small>B</small></div>
-              <span class="stat-card-desc" id="byte-mode-desc">UTF-8 표준 인코딩 기준 (한글 3B, 영문 1B)</span>
-            </div>
-
-            <!-- 추가 통계: 문장 수 -->
-            <div class="stat-card">
-              <span class="stat-card-title">문장 수 (추정)</span>
-              <div class="stat-card-value" id="count-sentences">0</div>
-              <span class="stat-card-desc">마침표·물음표·느낌표 기준</span>
-            </div>
-          </div>
-
-          <!-- 바이트 계산 규칙 안내 박스 -->
-          <div class="byte-rules-note">
-            <strong>바이트 기준 안내</strong>
-            <p id="byte-rules-text">
-              <strong>UTF-8 모드:</strong> 영문·숫자·기호는 1바이트, 한글은 3바이트로 계산하는 실제 웹·시스템 표준 저장 크기입니다. (예: <code>ABC</code> 3B, <code>가나다</code> 9B, <code>A가</code> 4B)<br>
-              <strong>한글 2바이트 간편 모드:</strong> 공공기관·취업 포털 등에서 관례적으로 적용하는 기준으로 한글(음절·자모)을 2바이트, 기본 ASCII를 1바이트로 계산한 추정치입니다.
-            </p>
+          <!-- 공백 포함/제외 기준 선택 -->
+          <div class="limit-criterion-group" role="radiogroup" aria-label="글자 수 제한 기준">
+            <label class="limit-crit-btn is-active" id="crit-with-spaces">
+              <input type="radio" name="limit-criterion" value="with_spaces" checked>
+              <span>공백 포함</span>
+            </label>
+            <label class="limit-crit-btn" id="crit-no-spaces">
+              <input type="radio" name="limit-criterion" value="no_spaces">
+              <span>공백 제외</span>
+            </label>
           </div>
         </div>
 
-        <!-- 5. 글자 수 제한 확인 (자기소개서·보고서용) -->
-        <div class="counter-card counter-limit-card">
-          <div class="limit-header">
-            <div>
-              <span class="eyebrow">Goal &amp; Limit</span>
-              <h3 class="limit-title">글자 수 제한 확인</h3>
-            </div>
-            <!-- 공백 포함/제외 기준 선택 -->
-            <div class="limit-criterion-group" role="radiogroup" aria-label="글자 수 제한 기준">
-              <label class="limit-crit-btn is-active" id="crit-with-spaces">
-                <input type="radio" name="limit-criterion" value="with_spaces" checked>
-                <span>공백 포함</span>
-              </label>
-              <label class="limit-crit-btn" id="crit-no-spaces">
-                <input type="radio" name="limit-criterion" value="no_spaces">
-                <span>공백 제외</span>
-              </label>
-            </div>
+        <!-- 제한 프리셋 및 직접 입력 -->
+        <div class="limit-controls-row">
+          <span class="limit-row-label">목표 글자 수:</span>
+          <div class="limit-presets-group" role="group" aria-label="목표 글자 수 선택">
+            <button type="button" class="limit-preset-btn" data-limit="500">500자</button>
+            <button type="button" class="limit-preset-btn is-active" data-limit="1000">1,000자</button>
+            <button type="button" class="limit-preset-btn" data-limit="1500">1,500자</button>
+            <button type="button" class="limit-preset-btn" data-limit="2000">2,000자</button>
           </div>
-
-          <!-- 제한 프리셋 및 직접 입력 -->
-          <div class="limit-controls-row">
-            <span class="limit-row-label">목표 글자 수:</span>
-            <div class="limit-presets-group" role="group" aria-label="목표 글자 수 선택">
-              <button type="button" class="limit-preset-btn" data-limit="500">500자</button>
-              <button type="button" class="limit-preset-btn is-active" data-limit="1000">1,000자</button>
-              <button type="button" class="limit-preset-btn" data-limit="1500">1,500자</button>
-              <button type="button" class="limit-preset-btn" data-limit="2000">2,000자</button>
-            </div>
-            <div class="custom-limit-wrap">
-              <label for="custom-limit-input" class="sr-only">직접 입력 목표 글자 수</label>
-              <input type="number" id="custom-limit-input" min="1" max="100000" placeholder="직접 입력" aria-label="직접 목표 글자 수 입력">
-              <span class="custom-limit-unit">자</span>
-            </div>
-          </div>
-
-          <!-- 게이지 바 및 수치 비교 -->
-          <div class="limit-progress-section">
-            <div class="limit-meta-row">
-              <div class="limit-count-indicator">
-                <span class="limit-count-current" id="limit-current-val">0</span>
-                <span class="limit-count-divider">/</span>
-                <span class="limit-count-max" id="limit-max-val">1,000</span>
-                <span class="limit-count-unit">자</span>
-              </div>
-              <div class="limit-diff-indicator" id="limit-diff-indicator">
-                <span class="limit-diff-label">남은 글자:</span>
-                <strong id="limit-diff-val">1,000자</strong>
-              </div>
-            </div>
-
-            <!-- 프로그레스 바 -->
-            <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0" id="progress-bar-container">
-              <div class="progress-fill" id="progress-fill-bar" style="width: 0%;"></div>
-            </div>
-
-            <div class="progress-footer-row">
-              <span class="progress-percent" id="progress-percent-val">0%</span>
-              <span class="limit-help-text" id="limit-help-text">설정한 목표 글자 수까지 여유가 있습니다.</span>
-            </div>
-
-            <!-- 초과 경고 메시지 영역 -->
-            <div class="limit-exceed-alert" id="limit-exceed-alert" hidden>
-              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              <span id="limit-exceed-msg">설정한 목표 글자 수를 초과했습니다. 필요 시 문장을 간결하게 다듬어보세요. (작성한 글은 삭제되지 않습니다.)</span>
-            </div>
+          <div class="custom-limit-wrap">
+            <label for="custom-limit-input" class="sr-only">직접 입력 목표 글자 수</label>
+            <input type="number" id="custom-limit-input" min="1" max="100000" placeholder="직접 입력"
+              aria-label="직접 목표 글자 수 입력">
+            <span class="custom-limit-unit">자</span>
           </div>
         </div>
-      </section>
 
-      <!-- 광고 영역 2 -->
-      <aside class="inner counter-ad-slot" aria-label="광고 영역" data-ad-slot="counter-middle">
-        <span>광고</span>
-      </aside>
-
-      <!-- 7. 간단한 이용 방법 -->
-      <section class="inner counter-info-section" aria-labelledby="steps-heading">
-        <div class="section-heading">
-          <span class="eyebrow">How It Works</span>
-          <h2 id="steps-heading">간단한 이용 방법</h2>
-          <p>누구나 브라우저에서 텍스트를 입력하고 글자 수와 바이트를 즉시 검토할 수 있습니다.</p>
-        </div>
-
-        <div class="steps-grid">
-          <div class="step-card">
-            <div class="step-num">01</div>
-            <h3>텍스트 작성 및 붙여넣기</h3>
-            <p>입력창에 직접 글을 타이핑하거나 자기소개서, 원고, 기사 텍스트를 붙여넣습니다.</p>
+        <!-- 게이지 바 및 수치 비교 -->
+        <div class="limit-progress-section">
+          <div class="limit-meta-row">
+            <div class="limit-count-indicator">
+              <span class="limit-count-current" id="limit-current-val">0</span>
+              <span class="limit-count-divider">/</span>
+              <span class="limit-count-max" id="limit-max-val">1,000</span>
+              <span class="limit-count-unit">자</span>
+            </div>
+            <div class="limit-diff-indicator" id="limit-diff-indicator">
+              <span class="limit-diff-label">남은 글자:</span>
+              <strong id="limit-diff-val">1,000자</strong>
+            </div>
           </div>
-          <div class="step-card">
-            <div class="step-num">02</div>
-            <h3>실시간 글자 수 &amp; 바이트 확인</h3>
-            <p>별도의 계산 버튼 없이 공백 포함/제외 글자 수, 단어 수, 바이트 수가 즉시 계산됩니다.</p>
+
+          <!-- 프로그레스 바 -->
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="0"
+            id="progress-bar-container">
+            <div class="progress-fill" id="progress-fill-bar" style="width: 0%;"></div>
           </div>
-          <div class="step-card">
-            <div class="step-num">03</div>
-            <h3>글자 수 제한 검사</h3>
-            <p>500자~2,000자 프리셋이나 직접 입력으로 목표치 대비 달성률과 남은 글자 수를 확인합니다.</p>
+
+          <div class="progress-footer-row">
+            <span class="progress-percent" id="progress-percent-val">0%</span>
+            <span class="limit-help-text" id="limit-help-text">설정한 목표 글자 수까지 여유가 있습니다.</span>
           </div>
-          <div class="step-card">
-            <div class="step-num">04</div>
-            <h3>간편 편집 및 TXT 저장</h3>
-            <p>공백 정리나 줄바꿈 제거로 문장을 정돈하고, 전체 복사 또는 <code>filewise-text.txt</code> 파일로 저장합니다.</p>
+
+          <!-- 초과 경고 메시지 영역 -->
+          <div class="limit-exceed-alert" id="limit-exceed-alert" hidden>
+            <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+              <line x1="12" y1="9" x2="12" y2="13" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+            <span id="limit-exceed-msg">설정한 목표 글자 수를 초과했습니다. 필요 시 문장을 간결하게 다듬어보세요. (작성한 글은 삭제되지 않습니다.)</span>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 8. 자주 묻는 질문 (FAQ) -->
-      <section class="inner counter-faq-section" aria-labelledby="faq-heading">
-        <div class="section-heading">
-          <span class="eyebrow">FAQ</span>
-          <h2 id="faq-heading">자주 묻는 질문</h2>
-          <p>글자 수 세기 및 바이트 계산에 대한 자주 묻는 질문을 확인하세요.</p>
+    <!-- 광고 영역 2 -->
+    <aside class="inner counter-ad-slot" aria-label="광고 영역" data-ad-slot="counter-middle">
+      <span>광고</span>
+    </aside>
+
+    <!-- 7. 간단한 이용 방법 -->
+    <section class="inner counter-info-section" aria-labelledby="steps-heading">
+      <div class="section-heading">
+        <span class="eyebrow">How It Works</span>
+        <h2 id="steps-heading">간단한 이용 방법</h2>
+        <p>누구나 브라우저에서 텍스트를 입력하고 글자 수와 바이트를 즉시 검토할 수 있습니다.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h3>텍스트 작성 및 붙여넣기</h3>
+          <p>입력창에 직접 글을 타이핑하거나 자기소개서, 원고, 기사 텍스트를 붙여넣습니다.</p>
         </div>
-
-        <div class="faq-list">
-          <details class="faq-item" open>
-            <summary class="faq-question">
-              <span>공백 포함과 공백 제외의 차이는 무엇인가요?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>‘공백 포함’은 스페이스(띄어쓰기), 탭, 줄바꿈(엔터)을 모두 1글자로 포함하여 계산한 총 글자 수입니다.</p>
-              <p>반면 ‘공백 제외’는 순수한 텍스트 문자만 집계한 수치입니다. 대부분의 자기소개서 채용 포털에서는 ‘공백 포함’ 기준을 많이 사용하지만, 공모전이나 원고지 기준에서는 ‘공백 제외’를 요구하기도 하므로 제출처의 기준을 반드시 확인해야 합니다.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span>한글은 UTF-8에서 몇 바이트인가요?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>현대 웹 및 데이터베이스 표준 인코딩인 <strong>UTF-8에서 한글 1글자는 3바이트(Byte)</strong>를 차지합니다. 영문, 숫자, 기본 특수문자는 1바이트입니다. (예: <code>가나다</code>는 9바이트, <code>ABC</code>는 3바이트, <code>A가</code>는 4바이트)</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span>글자 수와 바이트 수는 왜 다른가요?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>‘글자 수’는 사람이 인식하는 텍스트 문자 단위(유니코드 코드 포인트)를 기준으로 세는 것이고, ‘바이트 수’는 컴퓨터 메모리나 데이터베이스에 저장될 때 차지하는 실제 디지털 용량을 뜻합니다. 컴퓨터는 영어 알파벳과 한글, 한자, 이모지마다 사용하는 바이트 크기가 다르기 때문에 글자 수와 바이트 수에 차이가 발생합니다.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span>자기소개서 글자 수는 어떻게 확인하나요?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>페이지의 ‘글자 수 제한 확인’ 섹션에서 지원 회사의 채용 공고에 명시된 글자 수(예: 1,000자)와 공백 포함/제외 여부를 선택하세요. 실시간으로 남은 글자 수와 진행률이 표시되어 분량을 손쉽게 조절할 수 있습니다.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span>입력한 텍스트가 서버에 저장되거나 전송되나요?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>아닙니다. Filewise의 모든 텍스트 계산과 편집은 사용자의 웹 브라우저 안에서 100% 로컬로 처리됩니다. 외부 서버로 텍스트가 전송되지 않으므로 자기소개서, 대외비 문서, 개인정보가 포함된 글도 안심하고 계산할 수 있습니다.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span>모바일 스마트폰이나 태블릿에서도 이용할 수 있나요?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>네. 모바일 환경에 최적화된 반응형 레이아웃을 지원하여 스마트폰에서도 터치 친화적인 입력창과 통계 카드를 한눈에 확인할 수 있습니다.</p>
-            </div>
-          </details>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h3>실시간 글자 수 &amp; 바이트 확인</h3>
+          <p>별도의 계산 버튼 없이 공백 포함/제외 글자 수, 단어 수, 바이트 수가 즉시 계산됩니다.</p>
         </div>
-      </section>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h3>글자 수 제한 검사</h3>
+          <p>500자~2,000자 프리셋이나 직접 입력으로 목표치 대비 달성률과 남은 글자 수를 확인합니다.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <h3>간편 편집 및 TXT 저장</h3>
+          <p>공백 정리나 줄바꿈 제거로 문장을 정돈하고, 전체 복사 또는 <code>filewise-text.txt</code> 파일로 저장합니다.</p>
+        </div>
+      </div>
+    </section>
 
-      <!-- 광고 영역 3 -->
-      <aside class="inner counter-ad-slot counter-ad-slot--faq" aria-label="광고 영역" data-ad-slot="counter-before-faq">
-        <span>광고</span>
-      </aside>
-    </main>
+    <!-- 8. 자주 묻는 질문 (FAQ) -->
+    <section class="inner counter-faq-section" aria-labelledby="faq-heading">
+      <div class="section-heading">
+        <span class="eyebrow">FAQ</span>
+        <h2 id="faq-heading">자주 묻는 질문</h2>
+        <p>글자 수 세기 및 바이트 계산에 대한 자주 묻는 질문을 확인하세요.</p>
+      </div>
 
-    <div id="site-footer"></div>
-  </body>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary class="faq-question">
+            <span>공백 포함과 공백 제외의 차이는 무엇인가요?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>‘공백 포함’은 스페이스(띄어쓰기), 탭, 줄바꿈(엔터)을 모두 1글자로 포함하여 계산한 총 글자 수입니다.</p>
+            <p>반면 ‘공백 제외’는 순수한 텍스트 문자만 집계한 수치입니다. 대부분의 자기소개서 채용 포털에서는 ‘공백 포함’ 기준을 많이 사용하지만, 공모전이나 원고지 기준에서는 ‘공백 제외’를
+              요구하기도 하므로 제출처의 기준을 반드시 확인해야 합니다.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>한글은 UTF-8에서 몇 바이트인가요?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>현대 웹 및 데이터베이스 표준 인코딩인 <strong>UTF-8에서 한글 1글자는 3바이트(Byte)</strong>를 차지합니다. 영문, 숫자, 기본 특수문자는 1바이트입니다. (예:
+              <code>가나다</code>는 9바이트, <code>ABC</code>는 3바이트, <code>A가</code>는 4바이트)</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>글자 수와 바이트 수는 왜 다른가요?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>‘글자 수’는 사람이 인식하는 텍스트 문자 단위(유니코드 코드 포인트)를 기준으로 세는 것이고, ‘바이트 수’는 컴퓨터 메모리나 데이터베이스에 저장될 때 차지하는 실제 디지털 용량을
+              뜻합니다. 컴퓨터는 영어 알파벳과 한글, 한자, 이모지마다 사용하는 바이트 크기가 다르기 때문에 글자 수와 바이트 수에 차이가 발생합니다.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>자기소개서 글자 수는 어떻게 확인하나요?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>페이지의 ‘글자 수 제한 확인’ 섹션에서 지원 회사의 채용 공고에 명시된 글자 수(예: 1,000자)와 공백 포함/제외 여부를 선택하세요. 실시간으로 남은 글자 수와 진행률이 표시되어
+              분량을 손쉽게 조절할 수 있습니다.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>입력한 텍스트가 서버에 저장되거나 전송되나요?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>아닙니다. Filewise의 모든 텍스트 계산과 편집은 사용자의 웹 브라우저 안에서 100% 로컬로 처리됩니다. 외부 서버로 텍스트가 전송되지 않으므로 자기소개서, 대외비 문서, 개인정보가
+              포함된 글도 안심하고 계산할 수 있습니다.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>모바일 스마트폰이나 태블릿에서도 이용할 수 있나요?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>네. 모바일 환경에 최적화된 반응형 레이아웃을 지원하여 스마트폰에서도 터치 친화적인 입력창과 통계 카드를 한눈에 확인할 수 있습니다.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 광고 영역 3 -->
+    <aside class="inner counter-ad-slot counter-ad-slot--faq" aria-label="광고 영역" data-ad-slot="counter-before-faq">
+      <span>광고</span>
+    </aside>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+
 </html>

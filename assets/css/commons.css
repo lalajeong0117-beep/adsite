@@ -1326,3 +1326,105 @@ label:has(input:focus-visible) {
     opacity: 1;
   }
 }
+
+/* Coupang Partners Banner & Marquee */
+.coupang-banner-section {
+  width: 100%;
+  background: var(--color-white, #ffffff);
+  border-bottom: 1px solid var(--color-line, #dce6e2);
+  padding: 1.25rem 1rem 0.85rem;
+}
+
+.coupang-banner-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.coupang-banner-unit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 140px;
+}
+
+.coupang-banner-unit iframe {
+  border: 0 !important;
+  display: block !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* Marquee Text */
+.coupang-marquee-wrap {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0.6rem;
+  padding: 0.2rem 0;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.coupang-marquee-track {
+  display: inline-flex;
+  width: max-content;
+  will-change: transform;
+  animation: coupang-marquee 25s linear infinite;
+}
+
+.coupang-marquee-wrap:hover .coupang-marquee-track {
+  animation-play-state: paused;
+}
+
+.coupang-marquee-item {
+  display: inline-block;
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--color-muted, #647572);
+  padding-right: 4rem;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+}
+
+@keyframes coupang-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive banner display */
+@media (min-width: 768px) {
+  .coupang-banner-pc {
+    display: flex;
+    width: 680px;
+    height: 140px;
+  }
+  .coupang-banner-mo {
+    display: none !important;
+  }
+  .coupang-marquee-wrap {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 767px) {
+  .coupang-banner-section {
+    padding: 0.9rem 0.5rem 0.65rem;
+  }
+  .coupang-banner-pc {
+    display: none !important;
+  }
+  .coupang-banner-mo {
+    display: flex;
+    width: 280px;
+    height: 140px;
+  }
+  .coupang-marquee-wrap {
+    max-width: 280px;
+  }
+}
