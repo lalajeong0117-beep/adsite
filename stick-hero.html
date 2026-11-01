@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f8f6">
+    <title>막대 다리 건너기 게임 - 무료 온라인 스틱 히어로 | Filewise</title>
+    <meta name="description" content="무료 온라인 막대 다리 건너기 게임. 누르고 있는 시간에 따라 막대기를 늘려 다음 발판까지 이동하세요. PC와 모바일에서 간편하게 즐길 수 있습니다.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://adsite-dz6a.vercel.app/stick-hero.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Filewise">
+    <meta property="og:title" content="막대 다리 건너기 게임 - Filewise">
+    <meta property="og:description" content="무료 온라인 막대 다리 건너기 게임. 누르고 있는 시간에 따라 막대기를 늘려 다음 발판까지 이동하세요.">
+    <meta property="og:url" content="https://adsite-dz6a.vercel.app/stick-hero.html">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="막대 다리 건너기 게임 - Filewise">
+    <meta name="twitter:description" content="무료 온라인 막대 다리 건너기 게임. 누르고 있는 시간에 따라 막대기를 늘려 다음 발판까지 이동하세요.">
+    <meta name="twitter:url" content="https://adsite-dz6a.vercel.app/stick-hero.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/commons.css">
+    <link rel="stylesheet" href="assets/css/stick-hero.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script src="assets/js/common.js" defer></script>
+    <script src="assets/js/stick-hero.js" defer></script>
+
+    <meta name="google-site-verification" content="RRtpzhihXONf1msRUi1bhpXbRjwD_6-vNjTh4L8oef0" />
+    <meta name="naver-site-verification" content="f524cdcee6e210c4b603ecbb5e3af8e19f0a73c7" />
+  </head>
+  <body>
+    <!-- Icon Library -->
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden>
+      <symbol id="icon-mark" viewBox="0 0 24 24"><path d="M7 7h10v10H7z"/><path d="M4 10V4h6M20 14v6h-6M8 12h8M12 8v8"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+      <symbol id="icon-sound" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></symbol>
+      <symbol id="icon-mute" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></symbol>
+      <symbol id="icon-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></symbol>
+    </svg>
+
+    <div id="site-header"></div>
+    <div id="site-banner"></div>
+
+    <main class="stick-hero-page" id="top">
+      <!-- 1. 메인 소개 영역 (Hero) -->
+      <section class="stick-hero-hero" aria-labelledby="stick-hero-title">
+        <div class="inner stick-hero-hero-inner">
+          <span class="stick-hero-eyebrow">Filewise Arcade Mini Game</span>
+          <h1 id="stick-hero-title" class="stick-hero-title">막대기를 늘려 다음 발판까지 건너보세요!</h1>
+          <p class="stick-hero-desc">누르고 있는 시간에 따라 막대기 길이가 달라집니다. 정확한 길이를 맞춰 최고 점수에 도전하세요.</p>
+          <div class="stick-hero-badges" aria-label="게임 특징">
+            <span class="stick-hero-badge-item"><i class="stick-hero-badge-dot" aria-hidden="true"></i>무료 플레이</span>
+            <span class="stick-hero-badge-item"><i class="stick-hero-badge-dot" aria-hidden="true"></i>설치 없이 즉시 실행</span>
+            <span class="stick-hero-badge-item"><i class="stick-hero-badge-dot" aria-hidden="true"></i>정중앙 명중 시 +2점</span>
+            <span class="stick-hero-badge-item"><i class="stick-hero-badge-dot" aria-hidden="true"></i>PC &amp; 모바일 완벽 지원</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 광고 영역 1 (소개 하단) -->
+      <aside class="inner stick-hero-ad-slot" aria-label="광고 영역" data-ad-slot="stick-hero-top">
+        <span>광고</span>
+      </aside>
+
+      <!-- 2. 게임 플레이 워크스페이스 -->
+      <section class="inner stick-hero-workspace" aria-label="스틱 히어로 게임 플레이 화면">
+        <div class="stick-hero-game-card">
+          <!-- 상단 점수 HUD -->
+          <div class="stick-hero-hud">
+            <div class="stick-hero-score-group">
+              <div class="stick-hero-hud-pill">
+                <span class="stick-hero-hud-label">현재 점수</span>
+                <span class="stick-hero-hud-val" id="hud-current-score">0</span>
+              </div>
+              <div class="stick-hero-hud-pill highlight">
+                <span class="stick-hero-hud-label">최고 기록</span>
+                <span class="stick-hero-hud-val" id="hud-best-score">0</span>
+              </div>
+            </div>
+            <div class="stick-hero-hud-actions">
+              <button type="button" class="stick-hero-icon-btn" id="btn-sound-toggle" aria-label="소리 켜기/끄기" title="소리 켜기/끄기">
+                <svg id="icon-sound-state"><use href="#icon-sound"></use></svg>
+              </button>
+              <button type="button" class="stick-hero-icon-btn" id="btn-quick-restart" aria-label="다시 시작" title="게임 다시 시작">
+                <svg><use href="#icon-refresh"></use></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- 캔버스 컨테이너 뷰포트 -->
+          <div class="stick-hero-canvas-wrap" id="stick-hero-viewport" tabindex="0" role="application" aria-label="Stick Hero 캔버스 게임 화면">
+            <!-- 캔버스 (게임 렌더링) -->
+            <canvas id="stick-hero-canvas" class="stick-hero-canvas"></canvas>
+
+            <!-- 캔버스 내부 큰 점수 표시 -->
+            <div class="stick-hero-ingame-score" id="canvas-big-score" aria-hidden="true">0</div>
+
+            <!-- 시작 화면 오버레이 -->
+            <div class="stick-hero-overlay" id="overlay-start">
+              <div class="stick-hero-overlay-card">
+                <span class="stick-hero-overlay-tag">STICK HERO</span>
+                <h2 class="stick-hero-overlay-title">막대 다리 건너기</h2>
+                <p class="stick-hero-overlay-desc">화면을 길게 누르면 막대기가 자라납니다.<br>손을 떼면 다리가 놓입니다!</p>
+                <div class="stick-hero-score-summary">
+                  <div class="stick-hero-summary-box">
+                    <div class="stick-hero-summary-label">최고 기록</div>
+                    <div class="stick-hero-summary-val" id="start-best-score">0</div>
+                  </div>
+                  <div class="stick-hero-summary-box">
+                    <div class="stick-hero-summary-label">보너스 점수</div>
+                    <div class="stick-hero-summary-val" style="color: #e11d48;">+2</div>
+                  </div>
+                </div>
+                <button type="button" class="stick-hero-btn-primary" id="btn-game-start">
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span>게임 시작</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 게임 오버 오버레이 -->
+            <div class="stick-hero-overlay" id="overlay-gameover" hidden>
+              <div class="stick-hero-overlay-card">
+                <span class="stick-hero-overlay-tag" style="background: rgba(225, 29, 72, 0.1); color: #e11d48;">GAME OVER</span>
+                <h2 class="stick-hero-overlay-title">다리가 빗나갔어요!</h2>
+                <p class="stick-hero-overlay-desc" id="gameover-message">적절한 길이로 막대를 늘려보세요.</p>
+                <div class="stick-hero-score-summary">
+                  <div class="stick-hero-summary-box">
+                    <div class="stick-hero-summary-label">획득 점수</div>
+                    <div class="stick-hero-summary-val" id="gameover-final-score">0</div>
+                  </div>
+                  <div class="stick-hero-summary-box record">
+                    <div class="stick-hero-summary-label">최고 점수</div>
+                    <div class="stick-hero-summary-val" id="gameover-best-score">0</div>
+                  </div>
+                </div>
+                <button type="button" class="stick-hero-btn-primary" id="btn-game-restart">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+                  <span>다시 시작</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 조작 안내 힌트 -->
+          <div class="stick-hero-hint-banner" aria-label="조작 안내">
+            <strong>PC:</strong> 화면을 누르고 있거나 <kbd>Space</kbd> 키를 누르면 막대가 늘어납니다. &nbsp;|&nbsp; <strong>모바일:</strong> 화면을 터치하고 있으면 자라납니다.
+          </div>
+        </div>
+      </section>
+
+      <!-- 광고 영역 2 (게임 플레이 하단) -->
+      <aside class="inner stick-hero-ad-slot" aria-label="광고 영역" data-ad-slot="stick-hero-middle">
+        <span>광고</span>
+      </aside>
+
+      <!-- 3. 게임 방법 설명 (How to Play) -->
+      <section class="inner stick-hero-guide-section" aria-labelledby="guide-title">
+        <div class="section-heading">
+          <span class="eyebrow">How to Play</span>
+          <h2 id="guide-title">게임 방법</h2>
+          <p>간단한 조작으로 누구나 쉽게 즐길 수 있는 직관적인 아케이드 퍼즐입니다.</p>
+        </div>
+
+        <div class="stick-hero-steps-grid">
+          <div class="stick-hero-step-card">
+            <span class="stick-hero-step-num">1</span>
+            <h3 class="stick-hero-step-title">다음 발판 거리 가늠하기</h3>
+            <p class="stick-hero-step-text">캐릭터가 서 있는 발판과 건너편 다음 발판 사이의 거리를 눈으로 확인하고 필요한 막대 길이를 예측하세요.</p>
+          </div>
+          <div class="stick-hero-step-card">
+            <span class="stick-hero-step-num">2</span>
+            <h3 class="stick-hero-step-title">누르고 있으면 막대 신장</h3>
+            <p class="stick-hero-step-text">화면을 마우스로 클릭하거나 손가락으로 누르고 있는 동안 막대기가 수직으로 길어집니다.</p>
+          </div>
+          <div class="stick-hero-step-card">
+            <span class="stick-hero-step-num">3</span>
+            <h3 class="stick-hero-step-title">타이밍 맞춰 손 떼기</h3>
+            <p class="stick-hero-step-text">원하는 길이에 도달했을 때 손을 떼면 막대가 90도 회전하여 앞쪽 발판으로 쓰러집니다.</p>
+          </div>
+          <div class="stick-hero-step-card">
+            <span class="stick-hero-step-num">4</span>
+            <h3 class="stick-hero-step-title">다리 건너기 &amp; 점수 획득</h3>
+            <p class="stick-hero-step-text">막대가 다음 발판 위에 안전하게 걸치면 캐릭터가 자동으로 건너가며 점수를 획득합니다. 너무 짧거나 길면 낙하합니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. 고득점 팁 & 전략 (Tips) -->
+      <section class="inner stick-hero-tips-section" aria-labelledby="tips-title">
+        <div class="section-heading">
+          <span class="eyebrow">Pro Tips</span>
+          <h2 id="tips-title">고득점 달성을 위한 공략 팁</h2>
+          <p>단순한 플레이 속에서 높은 점수를 기록하기 위한 핵심 노하우를 확인하세요.</p>
+        </div>
+
+        <div class="stick-hero-tips-grid">
+          <div class="stick-hero-tip-item">
+            <div class="stick-hero-tip-icon" aria-hidden="true">
+              <svg fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6" fill="#f59e0b"/><circle cx="12" cy="12" r="2" fill="#fff"/></svg>
+            </div>
+            <div class="stick-hero-tip-body">
+              <h3>정중앙 빨간 보너스 존 공략</h3>
+              <p>각 발판 중앙의 빨간 점 위에 막대 끝이 정확히 착지하면 <strong>PERFECT 보너스로 2점</strong>을 획득합니다. 연속으로 맞추면 점수가 폭발적으로 상승합니다.</p>
+            </div>
+          </div>
+
+          <div class="stick-hero-tip-item">
+            <div class="stick-hero-tip-icon" aria-hidden="true">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <div class="stick-hero-tip-body">
+              <h3>일정한 신장 속도와 리듬 감각</h3>
+              <p>막대가 자라나는 속도는 항상 일정합니다. 마음속으로 '하나, 둘, 셋' 박자를 세면서 누르면 발판 간격별 길이를 훨씬 정밀하게 제어할 수 있습니다.</p>
+            </div>
+          </div>
+
+          <div class="stick-hero-tip-item">
+            <div class="stick-hero-tip-icon" aria-hidden="true">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2zm0-6h2v4h-2z"/></svg>
+            </div>
+            <div class="stick-hero-tip-body">
+              <h3>발판 너비를 최대한 활용하기</h3>
+              <p>발판이 넓을 때는 중앙을 무리하게 노리기보다 안전하게 발판 몸통 영역에 착지시키는 것이 생존율을 높이는 지름길입니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. FAQ Section -->
+      <section class="inner stick-hero-faq-section" aria-labelledby="faq-heading">
+        <div class="section-heading">
+          <span class="eyebrow">FAQ</span>
+          <h2 id="faq-heading">자주 묻는 질문</h2>
+          <p>막대 다리 건너기(스틱 히어로) 게임에 대한 자주 묻는 질문과 답변입니다.</p>
+        </div>
+
+        <div class="stick-hero-faq-list">
+          <details class="stick-hero-faq-item" open>
+            <summary class="stick-hero-faq-question">
+              <span>게임을 플레이하는 데 별도의 요금이나 회원가입이 필요한가요?</span>
+              <span class="stick-hero-faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="stick-hero-faq-answer">
+              <p>아닙니다. Filewise의 모든 웹 도구와 미니게임은 <strong>100% 무료</strong>로 제공되며, 회원가입이나 앱 설치 없이 브라우저에서 즉시 즐길 수 있습니다.</p>
+            </div>
+          </details>
+
+          <details class="stick-hero-faq-item">
+            <summary class="stick-hero-faq-question">
+              <span>스마트폰이나 태블릿 모바일 기기에서도 플레이할 수 있나요?</span>
+              <span class="stick-hero-faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="stick-hero-faq-answer">
+              <p>네. 터치 기반 모바일 디바이스에 최적화되어 있어 스마트폰 화면을 길게 터치하는 것만으로 손쉽게 플레이할 수 있습니다. 반응형 캔버스가 화면 비율에 맞춰 선명하게 출력됩니다.</p>
+            </div>
+          </details>
+
+          <details class="stick-hero-faq-item">
+            <summary class="stick-hero-faq-question">
+              <span>최고 점수(High Score)는 어떻게 저장되나요?</span>
+              <span class="stick-hero-faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="stick-hero-faq-answer">
+              <p>브라우저의 <code>LocalStorage</code>(키: <code>filewise_stick_hero_best</code>)에 안전하게 저장됩니다. 따라서 브라우저를 새로고침하거나 나중에 다시 접속해도 최고 점수가 그대로 유지됩니다.</p>
+            </div>
+          </details>
+
+          <details class="stick-hero-faq-item">
+            <summary class="stick-hero-faq-question">
+              <span>막대가 발판을 지나치면 어떻게 되나요?</span>
+              <span class="stick-hero-faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="stick-hero-faq-answer">
+              <p>막대가 너무 짧을 때뿐만 아니라 다음 발판을 지나쳐 너무 길게 떨어진 경우에도 캐릭터가 막대 끝까지 걸어간 뒤 아래로 추락하여 게임 오버가 됩니다. 발판의 시작과 끝 범위 안에 정확히 들어가야 합니다.</p>
+            </div>
+          </details>
+
+          <details class="stick-hero-faq-item">
+            <summary class="stick-hero-faq-question">
+              <span>PC에서 키보드로도 조작이 가능한가요?</span>
+              <span class="stick-hero-faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="stick-hero-faq-answer">
+              <p>네. 마우스 좌클릭뿐만 아니라 게임 화면 영역에 포커스가 있는 상태에서 <kbd>Space</kbd>(스페이스바)를 꾹 누르고 있으면 동일하게 막대를 늘릴 수 있습니다.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 광고 영역 3 (FAQ 하단) -->
+      <aside class="inner stick-hero-ad-slot stick-hero-ad-slot--faq" aria-label="광고 영역" data-ad-slot="stick-hero-bottom">
+        <span>광고</span>
+      </aside>
+    </main>
+
+    <div id="site-footer"></div>
+  </body>
+</html>
+

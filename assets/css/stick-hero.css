@@ -1,0 +1,612 @@
+/* assets/css/stick-hero.css - Filewise Stick Hero Game */
+
+/* Page Container */
+.stick-hero-page {
+  padding-bottom: 5rem;
+}
+
+/* 1. Hero Introduction */
+.stick-hero-hero {
+  padding-block: 3.5rem 2rem;
+  background: linear-gradient(180deg, rgba(211, 244, 122, 0.18) 0%, rgba(245, 248, 246, 0) 100%);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.stick-hero-hero-inner {
+  text-align: center;
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.stick-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: rgba(23, 77, 67, 0.08);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.stick-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-ink);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.stick-hero-desc {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+  max-width: 40rem;
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
+}
+
+.stick-hero-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
+
+.stick-hero-badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-white);
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-line);
+}
+
+.stick-hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+/* Ad Slots */
+.stick-hero-ad-slot {
+  display: grid;
+  place-items: center;
+  min-height: 5.5rem;
+  margin-block: 2.25rem;
+  border: 1px dashed #cbd5e1;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.75);
+  color: #94a3b8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+.stick-hero-ad-slot--faq {
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 2. Main Game Workspace */
+.stick-hero-workspace {
+  margin-top: 1rem;
+}
+
+.stick-hero-game-card {
+  max-width: 32rem;
+  margin-inline: auto;
+  background: var(--color-white);
+  border-radius: 1.25rem;
+  border: 1px solid var(--color-line);
+  box-shadow: 0 16px 40px rgba(23, 53, 45, 0.08);
+  padding: 1.5rem;
+}
+
+/* Top HUD */
+.stick-hero-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.stick-hero-score-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.stick-hero-hud-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.4rem 0.85rem;
+  border-radius: 0.75rem;
+  background: #f1f6f4;
+  border: 1px solid rgba(23, 77, 67, 0.1);
+  min-width: 5.5rem;
+}
+
+.stick-hero-hud-pill.highlight {
+  background: #fef9c3;
+  border-color: #fde047;
+}
+
+.stick-hero-hud-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+}
+
+.stick-hero-hud-val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  line-height: 1.2;
+}
+
+.stick-hero-hud-val.score-pop {
+  animation: scoreScalePop 0.25s ease-out;
+}
+
+@keyframes scoreScalePop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35); color: #047857; }
+  100% { transform: scale(1); }
+}
+
+.stick-hero-hud-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stick-hero-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-white);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.stick-hero-icon-btn:hover {
+  background: #edf5f2;
+  border-color: #a3c4b8;
+  color: var(--color-primary-dark);
+}
+
+.stick-hero-icon-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Canvas Viewport */
+.stick-hero-canvas-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 420 / 580;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #ebf5f0;
+  border: 1px solid var(--color-line);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.stick-hero-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+/* In-Game Big Score Display */
+.stick-hero-ingame-score {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: rgba(23, 43, 41, 0.25);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  transition: transform 0.15s ease;
+}
+
+/* Canvas Overlays */
+.stick-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(23, 43, 41, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: var(--color-white);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 10;
+}
+
+.stick-hero-overlay[hidden] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.stick-hero-overlay-card {
+  background: var(--color-white);
+  color: var(--color-ink);
+  padding: 2rem 1.75rem;
+  border-radius: 1.25rem;
+  width: min(100%, 20rem);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  animation: overlayCardIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes overlayCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.stick-hero-overlay-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: rgba(23, 77, 67, 0.1);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  margin-bottom: 0.6rem;
+}
+
+.stick-hero-overlay-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--color-ink);
+}
+
+.stick-hero-overlay-desc {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.stick-hero-score-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.stick-hero-summary-box {
+  background: #f8faf9;
+  border: 1px solid var(--color-line);
+  padding: 0.75rem 0.5rem;
+  border-radius: 0.75rem;
+}
+
+.stick-hero-summary-box.record {
+  background: #fefce8;
+  border-color: #fde047;
+}
+
+.stick-hero-summary-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-muted);
+  margin-bottom: 0.2rem;
+}
+
+.stick-hero-summary-val {
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+  color: var(--color-ink);
+}
+
+.stick-hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(23, 77, 67, 0.3);
+  transition: all 0.15s ease;
+}
+
+.stick-hero-btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(23, 77, 67, 0.35);
+}
+
+.stick-hero-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* In-game Floating Controls Hint */
+.stick-hero-hint-banner {
+  margin-top: 0.85rem;
+  padding: 0.65rem 1rem;
+  border-radius: 0.65rem;
+  background: #f8faf9;
+  border: 1px dashed #cbd5e1;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.stick-hero-hint-banner kbd {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  background: var(--color-white);
+  border: 1px solid #cbd5e1;
+  border-radius: 0.3rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 0.75rem;
+  font-family: inherit;
+  color: var(--color-ink);
+  margin-inline: 0.2rem;
+}
+
+/* 3. Instructions Guide Section */
+.stick-hero-guide-section {
+  margin-top: 4.5rem;
+}
+
+.stick-hero-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.stick-hero-step-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stick-hero-step-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(23, 53, 45, 0.06);
+}
+
+.stick-hero-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: rgba(23, 77, 67, 0.08);
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.stick-hero-step-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--color-ink);
+}
+
+.stick-hero-step-text {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* 4. Tips & Strategy Section */
+.stick-hero-tips-section {
+  margin-top: 4rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: 1.25rem;
+  padding: 2.25rem 2rem;
+}
+
+.stick-hero-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.stick-hero-tip-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.stick-hero-tip-icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  background: #fef3c7;
+  color: #b45309;
+  display: grid;
+  place-items: center;
+}
+
+.stick-hero-tip-icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.stick-hero-tip-body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: var(--color-ink);
+}
+
+.stick-hero-tip-body p {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+/* 5. FAQ Section */
+.stick-hero-faq-section {
+  margin-top: 4.5rem;
+}
+
+.stick-hero-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 52rem;
+  margin-top: 2rem;
+}
+
+.stick-hero-faq-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.stick-hero-faq-item[open] {
+  border-color: #99b8ac;
+}
+
+.stick-hero-faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.stick-hero-faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.stick-hero-faq-icon {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-primary);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.stick-hero-faq-item[open] .stick-hero-faq-icon {
+  transform: rotate(45deg);
+}
+
+.stick-hero-faq-answer {
+  padding: 0 1.5rem 1.25rem;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+.stick-hero-faq-answer p:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+.stick-hero-faq-answer code {
+  background: #f1f5f9;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.3rem;
+  font-size: 0.88em;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .stick-hero-hero {
+    padding-block: 2.25rem 1.5rem;
+  }
+
+  .stick-hero-game-card {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .stick-hero-hud-pill {
+    min-width: 4.5rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .stick-hero-hud-val {
+    font-size: 1.15rem;
+  }
+
+  .stick-hero-tips-section {
+    padding: 1.5rem 1.25rem;
+  }
+}
+

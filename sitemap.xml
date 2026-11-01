@@ -79,4 +79,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- 막대 다리 건너기 (Stick Hero) 게임 -->
+  <url>
+    <loc>https://adsite-dz6a.vercel.app/stick-hero.html</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

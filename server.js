@@ -67,6 +67,11 @@ app.get(["/resize", "/resize.html"], (request, response) => {
   response.sendFile(path.join(__dirname, "resize.html"));
 });
 
+// Serve the Stick Hero Game page
+app.get(["/stick-hero", "/stick-hero.html"], (request, response) => {
+  response.sendFile(path.join(__dirname, "stick-hero.html"));
+});
+
 // Serve favicon
 app.get("/favicon.svg", (request, response) => {
   response.sendFile(path.join(__dirname, "favicon.svg"));
